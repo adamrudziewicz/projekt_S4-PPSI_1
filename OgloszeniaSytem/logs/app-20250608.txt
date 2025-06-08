@@ -28675,3 +28675,1049 @@ ORDER BY "t"."DataPublikacji" DESC
 2025-06-08 18:43:27.641 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem) in 42.3682ms
 2025-06-08 18:43:27.643 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
 2025-06-08 18:43:27.644 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - 404 null application/problem+json; charset=utf-8 50.3087ms
+2025-06-08 23:14:01.178 +02:00 [INF] User profile is available. Using 'C:\Users\adam\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-08 23:14:01.363 +02:00 [INF] Inicjalizacja bazy danych...
+2025-06-08 23:14:01.924 +02:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2025-06-08 23:14:01.929 +02:00 [INF] Wypełnianie danymi startowymi...
+2025-06-08 23:14:02.088 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedName_0='?' (Size = 5)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-06-08 23:14:02.123 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedName_0='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-06-08 23:14:02.132 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 19)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2025-06-08 23:14:02.185 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Kategorie" AS "k")
+2025-06-08 23:14:02.189 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Lokalizacje" AS "l")
+2025-06-08 23:14:02.192 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Ogloszenia" AS "o")
+2025-06-08 23:14:02.193 +02:00 [INF] Inicjalizacja danych zakończona pomyślnie
+2025-06-08 23:14:02.195 +02:00 [INF] Baza danych zainicjalizowana pomyślnie
+2025-06-08 23:14:02.264 +02:00 [INF] Now listening on: http://localhost:5025
+2025-06-08 23:14:02.265 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-08 23:14:02.266 +02:00 [INF] Hosting environment: Development
+2025-06-08 23:14:02.266 +02:00 [INF] Content root path: C:\Users\adam\RiderProjects\OgloszeniaSytem
+2025-06-08 23:14:03.684 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/ - null null
+2025-06-08 23:14:03.689 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-06-08 23:14:03.725 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem)'
+2025-06-08 23:14:03.738 +02:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller OgloszeniaSytem.Controllers.HomeController (OgloszeniaSytem).
+2025-06-08 23:14:03.747 +02:00 [INF] Ładowanie strony głównej...
+2025-06-08 23:14:03.788 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis"
+FROM "Kategorie" AS "k"
+2025-06-08 23:14:03.801 +02:00 [INF] Znaleziono 8 kategorii
+2025-06-08 23:14:03.849 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."AutorId", "t"."Cena", "t"."CzyAktywne", "t"."DataPublikacji", "t"."DataWaznosci", "t"."KategoriaId", "t"."LiczbaWyswietlen", "t"."LokalizacjaId", "t"."Opis", "t"."Tytul", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM (
+    SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul"
+    FROM "Ogloszenia" AS "o"
+    WHERE "o"."CzyAktywne"
+    ORDER BY "o"."DataPublikacji" DESC
+    LIMIT @__p_0
+) AS "t"
+INNER JOIN "Kategorie" AS "k" ON "t"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "t"."LokalizacjaId" = "l"."Id"
+INNER JOIN "AspNetUsers" AS "a" ON "t"."AutorId" = "a"."Id"
+ORDER BY "t"."DataPublikacji" DESC
+2025-06-08 23:14:03.890 +02:00 [INF] Znaleziono 2 ogłoszeń
+2025-06-08 23:14:03.920 +02:00 [INF] Executing ViewResult, running view Index.
+2025-06-08 23:14:04.065 +02:00 [INF] Executed ViewResult - view Index executed in 146.1844ms.
+2025-06-08 23:14:04.072 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem) in 331.8608ms
+2025-06-08 23:14:04.074 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem)'
+2025-06-08 23:14:04.083 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/ - 200 null text/html; charset=utf-8 400.5901ms
+2025-06-08 23:14:04.096 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/css/site.css?v=pb2Oa1p0Ny_ka3Iq8Sanp1alkQyNWEQz4WwCL-kEaXA - null null
+2025-06-08 23:14:04.103 +02:00 [INF] The file /css/site.css was not modified
+2025-06-08 23:14:04.107 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/css/site.css?v=pb2Oa1p0Ny_ka3Iq8Sanp1alkQyNWEQz4WwCL-kEaXA - 304 null text/css 10.2187ms
+2025-06-08 23:14:04.175 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/js/site.js?v=OjaACr8x22FRkF5df3Huj-BFrOXLp6uU_zqSMWmmFN8 - null null
+2025-06-08 23:14:04.177 +02:00 [INF] The file /js/site.js was not modified
+2025-06-08 23:14:04.179 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/js/site.js?v=OjaACr8x22FRkF5df3Huj-BFrOXLp6uU_zqSMWmmFN8 - 304 null text/javascript 4.1375ms
+2025-06-08 23:14:04.283 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - null null
+2025-06-08 23:14:04.289 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:14:04.303 +02:00 [INF] Route matched with {action = "GetWeather", controller = "Api", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetWeather(System.String) on controller OgloszeniaSytem.Controllers.ApiController (OgloszeniaSytem).
+2025-06-08 23:14:04.325 +02:00 [INF] Wysyłanie zapytania do: https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:14:04.331 +02:00 [INF] Start processing HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:14:04.333 +02:00 [INF] Sending HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:14:04.501 +02:00 [INF] Received HTTP response headers after 163.5322ms - 401
+2025-06-08 23:14:04.504 +02:00 [INF] End processing HTTP request after 175.186ms - 401
+2025-06-08 23:14:04.510 +02:00 [ERR] Błąd API pogody. Status: "Unauthorized", Odpowiedź: {"cod":401, "message": "Invalid API key. Please see https://openweathermap.org/faq#error401 for more info."}
+2025-06-08 23:14:04.521 +02:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-06-08 23:14:04.555 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem) in 249.57ms
+2025-06-08 23:14:04.557 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:14:04.559 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - 404 null application/problem+json; charset=utf-8 275.0673ms
+2025-06-08 23:14:05.532 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Identity/Account/Login - null null
+2025-06-08 23:14:05.537 +02:00 [INF] Executing endpoint '/Account/Login'
+2025-06-08 23:14:05.546 +02:00 [INF] Route matched with {page = "/Account/Login", area = "Identity", action = "", controller = ""}. Executing page /Account/Login
+2025-06-08 23:14:05.554 +02:00 [INF] Executing handler method OgloszeniaSytem.Areas.Identity.Pages.Account.LoginModel.OnGetAsync - ModelState is "Valid"
+2025-06-08 23:14:05.557 +02:00 [INF] AuthenticationScheme: Identity.External signed out.
+2025-06-08 23:14:05.558 +02:00 [INF] Executed handler method OnGetAsync, returned result .
+2025-06-08 23:14:05.561 +02:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2025-06-08 23:14:05.562 +02:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-06-08 23:14:05.598 +02:00 [INF] Executed page /Account/Login in 51.0983ms
+2025-06-08 23:14:05.599 +02:00 [INF] Executed endpoint '/Account/Login'
+2025-06-08 23:14:05.601 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Identity/Account/Login - 200 null text/html; charset=utf-8 68.6057ms
+2025-06-08 23:14:05.639 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - null null
+2025-06-08 23:14:05.643 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:14:05.644 +02:00 [INF] Route matched with {action = "GetWeather", controller = "Api", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetWeather(System.String) on controller OgloszeniaSytem.Controllers.ApiController (OgloszeniaSytem).
+2025-06-08 23:14:05.647 +02:00 [INF] Wysyłanie zapytania do: https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:14:05.648 +02:00 [INF] Start processing HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:14:05.649 +02:00 [INF] Sending HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:14:05.674 +02:00 [INF] Received HTTP response headers after 23.688ms - 401
+2025-06-08 23:14:05.675 +02:00 [INF] End processing HTTP request after 26.7918ms - 401
+2025-06-08 23:14:05.676 +02:00 [ERR] Błąd API pogody. Status: "Unauthorized", Odpowiedź: {"cod":401, "message": "Invalid API key. Please see https://openweathermap.org/faq#error401 for more info."}
+2025-06-08 23:14:05.677 +02:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-06-08 23:14:05.678 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem) in 33.5066ms
+2025-06-08 23:14:05.679 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:14:05.680 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - 404 null application/problem+json; charset=utf-8 41.1311ms
+2025-06-08 23:14:06.754 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5025/Identity/Account/Login - application/x-www-form-urlencoded 296
+2025-06-08 23:14:06.759 +02:00 [INF] Executing endpoint '/Account/Login'
+2025-06-08 23:14:06.760 +02:00 [INF] Route matched with {page = "/Account/Login", area = "Identity", action = "", controller = ""}. Executing page /Account/Login
+2025-06-08 23:14:06.776 +02:00 [INF] Executing handler method OgloszeniaSytem.Areas.Identity.Pages.Account.LoginModel.OnPostAsync - ModelState is "Valid"
+2025-06-08 23:14:06.785 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedUserName_0='?' (Size = 45)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2025-06-08 23:14:06.856 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ClaimType", "a"."ClaimValue", "a"."UserId"
+FROM "AspNetUserClaims" AS "a"
+WHERE "a"."UserId" = @__user_Id_0
+2025-06-08 23:14:06.865 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-06-08 23:14:06.868 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedName_0='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-06-08 23:14:06.876 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__role_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."ClaimType", "a"."ClaimValue"
+FROM "AspNetRoleClaims" AS "a"
+WHERE "a"."RoleId" = @__role_Id_0
+2025-06-08 23:14:06.879 +02:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2025-06-08 23:14:06.881 +02:00 [INF] User logged in.
+2025-06-08 23:14:06.882 +02:00 [INF] Executed handler method OnPostAsync, returned result Microsoft.AspNetCore.Mvc.LocalRedirectResult.
+2025-06-08 23:14:06.883 +02:00 [INF] Executing LocalRedirectResult, redirecting to /.
+2025-06-08 23:14:06.884 +02:00 [INF] Executed page /Account/Login in 123.0932ms
+2025-06-08 23:14:06.885 +02:00 [INF] Executed endpoint '/Account/Login'
+2025-06-08 23:14:06.886 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5025/Identity/Account/Login - 302 0 null 132.1585ms
+2025-06-08 23:14:06.889 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/ - null null
+2025-06-08 23:14:06.893 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem)'
+2025-06-08 23:14:06.894 +02:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller OgloszeniaSytem.Controllers.HomeController (OgloszeniaSytem).
+2025-06-08 23:14:06.895 +02:00 [INF] Ładowanie strony głównej...
+2025-06-08 23:14:06.897 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis"
+FROM "Kategorie" AS "k"
+2025-06-08 23:14:06.898 +02:00 [INF] Znaleziono 8 kategorii
+2025-06-08 23:14:06.899 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."AutorId", "t"."Cena", "t"."CzyAktywne", "t"."DataPublikacji", "t"."DataWaznosci", "t"."KategoriaId", "t"."LiczbaWyswietlen", "t"."LokalizacjaId", "t"."Opis", "t"."Tytul", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM (
+    SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul"
+    FROM "Ogloszenia" AS "o"
+    WHERE "o"."CzyAktywne"
+    ORDER BY "o"."DataPublikacji" DESC
+    LIMIT @__p_0
+) AS "t"
+INNER JOIN "Kategorie" AS "k" ON "t"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "t"."LokalizacjaId" = "l"."Id"
+INNER JOIN "AspNetUsers" AS "a" ON "t"."AutorId" = "a"."Id"
+ORDER BY "t"."DataPublikacji" DESC
+2025-06-08 23:14:06.902 +02:00 [INF] Znaleziono 2 ogłoszeń
+2025-06-08 23:14:06.904 +02:00 [INF] Executing ViewResult, running view Index.
+2025-06-08 23:14:06.908 +02:00 [INF] Executed ViewResult - view Index executed in 4.769ms.
+2025-06-08 23:14:06.909 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem) in 14.1831ms
+2025-06-08 23:14:06.910 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem)'
+2025-06-08 23:14:06.911 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/ - 200 null text/html; charset=utf-8 22.3396ms
+2025-06-08 23:14:06.947 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - null null
+2025-06-08 23:14:06.951 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:14:06.952 +02:00 [INF] Route matched with {action = "GetWeather", controller = "Api", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetWeather(System.String) on controller OgloszeniaSytem.Controllers.ApiController (OgloszeniaSytem).
+2025-06-08 23:14:06.955 +02:00 [INF] Wysyłanie zapytania do: https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:14:06.956 +02:00 [INF] Start processing HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:14:06.957 +02:00 [INF] Sending HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:14:06.980 +02:00 [INF] Received HTTP response headers after 22.6597ms - 401
+2025-06-08 23:14:06.981 +02:00 [INF] End processing HTTP request after 25.1853ms - 401
+2025-06-08 23:14:06.982 +02:00 [ERR] Błąd API pogody. Status: "Unauthorized", Odpowiedź: {"cod":401, "message": "Invalid API key. Please see https://openweathermap.org/faq#error401 for more info."}
+2025-06-08 23:14:06.983 +02:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-06-08 23:14:06.983 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem) in 30.2275ms
+2025-06-08 23:14:06.984 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:14:06.985 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - 404 null application/problem+json; charset=utf-8 38.009ms
+2025-06-08 23:18:08.696 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Listing?search=iPhone&kategoria=&lokalizacja= - null null
+2025-06-08 23:18:08.702 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.ListingController.Index (OgloszeniaSytem)'
+2025-06-08 23:18:08.706 +02:00 [INF] Route matched with {action = "Index", controller = "Listing", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, System.String, Int32) on controller OgloszeniaSytem.Controllers.ListingController (OgloszeniaSytem).
+2025-06-08 23:18:08.709 +02:00 [INF] Pobieranie listy ogłoszeń dla kategorii: null, lokalizacji: null
+2025-06-08 23:18:08.728 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Ogloszenia" AS "o"
+WHERE "o"."CzyAktywne"
+2025-06-08 23:18:08.739 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_1='?' (DbType = Int32), @__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."AutorId", "t"."Cena", "t"."CzyAktywne", "t"."DataPublikacji", "t"."DataWaznosci", "t"."KategoriaId", "t"."LiczbaWyswietlen", "t"."LokalizacjaId", "t"."Opis", "t"."Tytul", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo"
+FROM (
+    SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul"
+    FROM "Ogloszenia" AS "o"
+    WHERE "o"."CzyAktywne"
+    ORDER BY "o"."DataPublikacji" DESC
+    LIMIT @__p_1 OFFSET @__p_0
+) AS "t"
+INNER JOIN "AspNetUsers" AS "a" ON "t"."AutorId" = "a"."Id"
+INNER JOIN "Kategorie" AS "k" ON "t"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "t"."LokalizacjaId" = "l"."Id"
+ORDER BY "t"."DataPublikacji" DESC
+2025-06-08 23:18:08.742 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis"
+FROM "Kategorie" AS "k"
+2025-06-08 23:18:08.747 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo"
+FROM "Lokalizacje" AS "l"
+2025-06-08 23:18:08.751 +02:00 [INF] Executing ViewResult, running view Index.
+2025-06-08 23:18:08.768 +02:00 [INF] Executed ViewResult - view Index executed in 17.1145ms.
+2025-06-08 23:18:08.769 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.ListingController.Index (OgloszeniaSytem) in 61.6186ms
+2025-06-08 23:18:08.770 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.ListingController.Index (OgloszeniaSytem)'
+2025-06-08 23:18:08.771 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Listing?search=iPhone&kategoria=&lokalizacja= - 200 null text/html; charset=utf-8 74.1868ms
+2025-06-08 23:18:08.859 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - null null
+2025-06-08 23:18:08.862 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:18:08.863 +02:00 [INF] Route matched with {action = "GetWeather", controller = "Api", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetWeather(System.String) on controller OgloszeniaSytem.Controllers.ApiController (OgloszeniaSytem).
+2025-06-08 23:18:08.864 +02:00 [INF] Wysyłanie zapytania do: https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:18:08.865 +02:00 [INF] Start processing HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:18:08.866 +02:00 [INF] Sending HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:18:08.986 +02:00 [INF] Received HTTP response headers after 119.4382ms - 401
+2025-06-08 23:18:08.987 +02:00 [INF] End processing HTTP request after 121.501ms - 401
+2025-06-08 23:18:08.987 +02:00 [ERR] Błąd API pogody. Status: "Unauthorized", Odpowiedź: {"cod":401, "message": "Invalid API key. Please see https://openweathermap.org/faq#error401 for more info."}
+2025-06-08 23:18:08.988 +02:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-06-08 23:18:08.989 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem) in 125.3837ms
+2025-06-08 23:18:08.990 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:18:08.991 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - 404 null application/problem+json; charset=utf-8 131.7358ms
+2025-06-08 23:18:11.777 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/ - null null
+2025-06-08 23:18:11.779 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem)'
+2025-06-08 23:18:11.780 +02:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller OgloszeniaSytem.Controllers.HomeController (OgloszeniaSytem).
+2025-06-08 23:18:11.781 +02:00 [INF] Ładowanie strony głównej...
+2025-06-08 23:18:11.783 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis"
+FROM "Kategorie" AS "k"
+2025-06-08 23:18:11.784 +02:00 [INF] Znaleziono 8 kategorii
+2025-06-08 23:18:11.786 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."AutorId", "t"."Cena", "t"."CzyAktywne", "t"."DataPublikacji", "t"."DataWaznosci", "t"."KategoriaId", "t"."LiczbaWyswietlen", "t"."LokalizacjaId", "t"."Opis", "t"."Tytul", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM (
+    SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul"
+    FROM "Ogloszenia" AS "o"
+    WHERE "o"."CzyAktywne"
+    ORDER BY "o"."DataPublikacji" DESC
+    LIMIT @__p_0
+) AS "t"
+INNER JOIN "Kategorie" AS "k" ON "t"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "t"."LokalizacjaId" = "l"."Id"
+INNER JOIN "AspNetUsers" AS "a" ON "t"."AutorId" = "a"."Id"
+ORDER BY "t"."DataPublikacji" DESC
+2025-06-08 23:18:11.788 +02:00 [INF] Znaleziono 2 ogłoszeń
+2025-06-08 23:18:11.789 +02:00 [INF] Executing ViewResult, running view Index.
+2025-06-08 23:18:11.791 +02:00 [INF] Executed ViewResult - view Index executed in 2.121ms.
+2025-06-08 23:18:11.792 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem) in 10.6639ms
+2025-06-08 23:18:11.793 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem)'
+2025-06-08 23:18:11.794 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/ - 200 null text/html; charset=utf-8 17.1326ms
+2025-06-08 23:18:11.837 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - null null
+2025-06-08 23:18:11.839 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:18:11.840 +02:00 [INF] Route matched with {action = "GetWeather", controller = "Api", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetWeather(System.String) on controller OgloszeniaSytem.Controllers.ApiController (OgloszeniaSytem).
+2025-06-08 23:18:11.841 +02:00 [INF] Wysyłanie zapytania do: https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:18:11.842 +02:00 [INF] Start processing HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:18:11.843 +02:00 [INF] Sending HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:18:11.880 +02:00 [INF] Received HTTP response headers after 36.7291ms - 401
+2025-06-08 23:18:11.881 +02:00 [INF] End processing HTTP request after 39.2172ms - 401
+2025-06-08 23:18:11.882 +02:00 [ERR] Błąd API pogody. Status: "Unauthorized", Odpowiedź: {"cod":401, "message": "Invalid API key. Please see https://openweathermap.org/faq#error401 for more info."}
+2025-06-08 23:18:11.883 +02:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-06-08 23:18:11.884 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem) in 43.3102ms
+2025-06-08 23:18:11.885 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:18:11.886 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - 404 null application/problem+json; charset=utf-8 48.7502ms
+2025-06-08 23:19:15.464 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Identity/Account/Manage - null null
+2025-06-08 23:19:15.471 +02:00 [INF] Executing endpoint '/Account/Manage/Index'
+2025-06-08 23:19:15.475 +02:00 [INF] Route matched with {page = "/Account/Manage/Index", area = "Identity", action = "", controller = ""}. Executing page /Account/Manage/Index
+2025-06-08 23:19:15.478 +02:00 [INF] Executing handler method OgloszeniaSytem.Areas.Identity.Pages.Account.Manage.IndexModel.OnGetAsync - ModelState is "Valid"
+2025-06-08 23:19:15.495 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-06-08 23:19:15.497 +02:00 [INF] Executed handler method OnGetAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-06-08 23:19:15.518 +02:00 [INF] Executed page /Account/Manage/Index in 42.1151ms
+2025-06-08 23:19:15.519 +02:00 [INF] Executed endpoint '/Account/Manage/Index'
+2025-06-08 23:19:15.520 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Identity/Account/Manage - 200 null text/html; charset=utf-8 55.884ms
+2025-06-08 23:19:15.610 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - null null
+2025-06-08 23:19:15.613 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:19:15.613 +02:00 [INF] Route matched with {action = "GetWeather", controller = "Api", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetWeather(System.String) on controller OgloszeniaSytem.Controllers.ApiController (OgloszeniaSytem).
+2025-06-08 23:19:15.615 +02:00 [INF] Wysyłanie zapytania do: https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:19:15.616 +02:00 [INF] Start processing HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:19:15.617 +02:00 [INF] Sending HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:19:15.654 +02:00 [INF] Received HTTP response headers after 36.0249ms - 401
+2025-06-08 23:19:15.654 +02:00 [INF] End processing HTTP request after 38.2206ms - 401
+2025-06-08 23:19:15.656 +02:00 [ERR] Błąd API pogody. Status: "Unauthorized", Odpowiedź: {"cod":401, "message": "Invalid API key. Please see https://openweathermap.org/faq#error401 for more info."}
+2025-06-08 23:19:15.657 +02:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-06-08 23:19:15.658 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem) in 42.8903ms
+2025-06-08 23:19:15.659 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:19:15.659 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - 404 null application/problem+json; charset=utf-8 49.0742ms
+2025-06-08 23:19:19.478 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Identity/Account/Manage/Email - null null
+2025-06-08 23:19:19.481 +02:00 [INF] Executing endpoint '/Account/Manage/Email'
+2025-06-08 23:19:19.485 +02:00 [INF] Route matched with {page = "/Account/Manage/Email", area = "Identity", action = "", controller = ""}. Executing page /Account/Manage/Email
+2025-06-08 23:19:19.486 +02:00 [INF] Executing handler method Microsoft.AspNetCore.Identity.UI.V4.Pages.Account.Manage.Internal.EmailModel.OnGetAsync - ModelState is "Valid"
+2025-06-08 23:19:19.489 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-06-08 23:19:19.492 +02:00 [INF] Executed handler method OnGetAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-06-08 23:19:19.502 +02:00 [INF] Executed page /Account/Manage/Email in 16.2953ms
+2025-06-08 23:19:19.503 +02:00 [INF] Executed endpoint '/Account/Manage/Email'
+2025-06-08 23:19:19.504 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Identity/Account/Manage/Email - 200 null text/html; charset=utf-8 26.3612ms
+2025-06-08 23:19:19.559 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - null null
+2025-06-08 23:19:19.562 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:19:19.562 +02:00 [INF] Route matched with {action = "GetWeather", controller = "Api", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetWeather(System.String) on controller OgloszeniaSytem.Controllers.ApiController (OgloszeniaSytem).
+2025-06-08 23:19:19.564 +02:00 [INF] Wysyłanie zapytania do: https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:19:19.565 +02:00 [INF] Start processing HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:19:19.566 +02:00 [INF] Sending HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:19:19.603 +02:00 [INF] Received HTTP response headers after 36.3253ms - 401
+2025-06-08 23:19:19.604 +02:00 [INF] End processing HTTP request after 38.7038ms - 401
+2025-06-08 23:19:19.605 +02:00 [ERR] Błąd API pogody. Status: "Unauthorized", Odpowiedź: {"cod":401, "message": "Invalid API key. Please see https://openweathermap.org/faq#error401 for more info."}
+2025-06-08 23:19:19.606 +02:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-06-08 23:19:19.607 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem) in 42.7046ms
+2025-06-08 23:19:19.607 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:19:19.608 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - 404 null application/problem+json; charset=utf-8 49.1464ms
+2025-06-08 23:19:20.219 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Identity/Account/Manage/ChangePassword - null null
+2025-06-08 23:19:20.223 +02:00 [INF] Executing endpoint '/Account/Manage/ChangePassword'
+2025-06-08 23:19:20.227 +02:00 [INF] Route matched with {page = "/Account/Manage/ChangePassword", area = "Identity", action = "", controller = ""}. Executing page /Account/Manage/ChangePassword
+2025-06-08 23:19:20.228 +02:00 [INF] Executing handler method Microsoft.AspNetCore.Identity.UI.V4.Pages.Account.Manage.Internal.ChangePasswordModel.OnGetAsync - ModelState is "Valid"
+2025-06-08 23:19:20.230 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-06-08 23:19:20.231 +02:00 [INF] Executed handler method OnGetAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-06-08 23:19:20.240 +02:00 [INF] Executed page /Account/Manage/ChangePassword in 12.8822ms
+2025-06-08 23:19:20.241 +02:00 [INF] Executed endpoint '/Account/Manage/ChangePassword'
+2025-06-08 23:19:20.242 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Identity/Account/Manage/ChangePassword - 200 null text/html; charset=utf-8 23.1033ms
+2025-06-08 23:19:20.269 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - null null
+2025-06-08 23:19:20.272 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:19:20.272 +02:00 [INF] Route matched with {action = "GetWeather", controller = "Api", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetWeather(System.String) on controller OgloszeniaSytem.Controllers.ApiController (OgloszeniaSytem).
+2025-06-08 23:19:20.274 +02:00 [INF] Wysyłanie zapytania do: https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:19:20.274 +02:00 [INF] Start processing HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:19:20.275 +02:00 [INF] Sending HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:19:20.311 +02:00 [INF] Received HTTP response headers after 34.8757ms - 401
+2025-06-08 23:19:20.311 +02:00 [INF] End processing HTTP request after 37.17ms - 401
+2025-06-08 23:19:20.312 +02:00 [ERR] Błąd API pogody. Status: "Unauthorized", Odpowiedź: {"cod":401, "message": "Invalid API key. Please see https://openweathermap.org/faq#error401 for more info."}
+2025-06-08 23:19:20.313 +02:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-06-08 23:19:20.314 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem) in 40.3242ms
+2025-06-08 23:19:20.315 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:19:20.315 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - 404 null application/problem+json; charset=utf-8 46.4567ms
+2025-06-08 23:19:20.688 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Identity/Account/Manage/TwoFactorAuthentication - null null
+2025-06-08 23:19:20.690 +02:00 [INF] Executing endpoint '/Account/Manage/TwoFactorAuthentication'
+2025-06-08 23:19:20.693 +02:00 [INF] Route matched with {page = "/Account/Manage/TwoFactorAuthentication", area = "Identity", action = "", controller = ""}. Executing page /Account/Manage/TwoFactorAuthentication
+2025-06-08 23:19:20.694 +02:00 [INF] Executing handler method Microsoft.AspNetCore.Identity.UI.V4.Pages.Account.Manage.Internal.TwoFactorAuthenticationModel.OnGetAsync - ModelState is "Valid"
+2025-06-08 23:19:20.697 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-06-08 23:19:20.703 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36), @__p_1='?' (Size = 17), @__p_2='?' (Size = 16)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."UserId", "a"."LoginProvider", "a"."Name", "a"."Value"
+FROM "AspNetUserTokens" AS "a"
+WHERE "a"."UserId" = @__p_0 AND "a"."LoginProvider" = @__p_1 AND "a"."Name" = @__p_2
+LIMIT 1
+2025-06-08 23:19:20.705 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36), @__p_1='?' (Size = 17), @__p_2='?' (Size = 13)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."UserId", "a"."LoginProvider", "a"."Name", "a"."Value"
+FROM "AspNetUserTokens" AS "a"
+WHERE "a"."UserId" = @__p_0 AND "a"."LoginProvider" = @__p_1 AND "a"."Name" = @__p_2
+LIMIT 1
+2025-06-08 23:19:20.707 +02:00 [INF] Executed handler method OnGetAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-06-08 23:19:20.714 +02:00 [INF] Executed page /Account/Manage/TwoFactorAuthentication in 20.6556ms
+2025-06-08 23:19:20.715 +02:00 [INF] Executed endpoint '/Account/Manage/TwoFactorAuthentication'
+2025-06-08 23:19:20.716 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Identity/Account/Manage/TwoFactorAuthentication - 200 null text/html; charset=utf-8 28.4474ms
+2025-06-08 23:19:20.745 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - null null
+2025-06-08 23:19:20.747 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:19:20.748 +02:00 [INF] Route matched with {action = "GetWeather", controller = "Api", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetWeather(System.String) on controller OgloszeniaSytem.Controllers.ApiController (OgloszeniaSytem).
+2025-06-08 23:19:20.750 +02:00 [INF] Wysyłanie zapytania do: https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:19:20.751 +02:00 [INF] Start processing HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:19:20.751 +02:00 [INF] Sending HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:19:20.789 +02:00 [INF] Received HTTP response headers after 36.6532ms - 401
+2025-06-08 23:19:20.790 +02:00 [INF] End processing HTTP request after 39.123ms - 401
+2025-06-08 23:19:20.790 +02:00 [ERR] Błąd API pogody. Status: "Unauthorized", Odpowiedź: {"cod":401, "message": "Invalid API key. Please see https://openweathermap.org/faq#error401 for more info."}
+2025-06-08 23:19:20.791 +02:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-06-08 23:19:20.792 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem) in 42.8568ms
+2025-06-08 23:19:20.793 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:19:20.794 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - 404 null application/problem+json; charset=utf-8 48.8341ms
+2025-06-08 23:19:21.080 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Identity/Account/Manage/PersonalData - null null
+2025-06-08 23:19:21.083 +02:00 [INF] Executing endpoint '/Account/Manage/PersonalData'
+2025-06-08 23:19:21.085 +02:00 [INF] Route matched with {page = "/Account/Manage/PersonalData", area = "Identity", action = "", controller = ""}. Executing page /Account/Manage/PersonalData
+2025-06-08 23:19:21.086 +02:00 [INF] Executing handler method Microsoft.AspNetCore.Identity.UI.V4.Pages.Account.Manage.Internal.PersonalDataModel.OnGet - ModelState is "Valid"
+2025-06-08 23:19:21.088 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-06-08 23:19:21.090 +02:00 [INF] Executed handler method OnGet, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-06-08 23:19:21.094 +02:00 [INF] Executed page /Account/Manage/PersonalData in 8.3683ms
+2025-06-08 23:19:21.095 +02:00 [INF] Executed endpoint '/Account/Manage/PersonalData'
+2025-06-08 23:19:21.097 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Identity/Account/Manage/PersonalData - 200 null text/html; charset=utf-8 17.1091ms
+2025-06-08 23:19:21.123 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - null null
+2025-06-08 23:19:21.125 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:19:21.125 +02:00 [INF] Route matched with {action = "GetWeather", controller = "Api", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetWeather(System.String) on controller OgloszeniaSytem.Controllers.ApiController (OgloszeniaSytem).
+2025-06-08 23:19:21.127 +02:00 [INF] Wysyłanie zapytania do: https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:19:21.128 +02:00 [INF] Start processing HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:19:21.129 +02:00 [INF] Sending HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:19:21.165 +02:00 [INF] Received HTTP response headers after 35.2466ms - 401
+2025-06-08 23:19:21.166 +02:00 [INF] End processing HTTP request after 37.9296ms - 401
+2025-06-08 23:19:21.167 +02:00 [ERR] Błąd API pogody. Status: "Unauthorized", Odpowiedź: {"cod":401, "message": "Invalid API key. Please see https://openweathermap.org/faq#error401 for more info."}
+2025-06-08 23:19:21.167 +02:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-06-08 23:19:21.168 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem) in 41.5077ms
+2025-06-08 23:19:21.169 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:19:21.170 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - 404 null application/problem+json; charset=utf-8 47.2767ms
+2025-06-08 23:19:21.854 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Identity/Account/Manage - null null
+2025-06-08 23:19:21.857 +02:00 [INF] Executing endpoint '/Account/Manage/Index'
+2025-06-08 23:19:21.858 +02:00 [INF] Route matched with {page = "/Account/Manage/Index", area = "Identity", action = "", controller = ""}. Executing page /Account/Manage/Index
+2025-06-08 23:19:21.860 +02:00 [INF] Executing handler method OgloszeniaSytem.Areas.Identity.Pages.Account.Manage.IndexModel.OnGetAsync - ModelState is "Valid"
+2025-06-08 23:19:21.861 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-06-08 23:19:21.863 +02:00 [INF] Executed handler method OnGetAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-06-08 23:19:21.865 +02:00 [INF] Executed page /Account/Manage/Index in 5.97ms
+2025-06-08 23:19:21.866 +02:00 [INF] Executed endpoint '/Account/Manage/Index'
+2025-06-08 23:19:21.867 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Identity/Account/Manage - 200 null text/html; charset=utf-8 12.7121ms
+2025-06-08 23:19:21.894 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - null null
+2025-06-08 23:19:21.896 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:19:21.897 +02:00 [INF] Route matched with {action = "GetWeather", controller = "Api", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetWeather(System.String) on controller OgloszeniaSytem.Controllers.ApiController (OgloszeniaSytem).
+2025-06-08 23:19:21.899 +02:00 [INF] Wysyłanie zapytania do: https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:19:21.899 +02:00 [INF] Start processing HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:19:21.900 +02:00 [INF] Sending HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:19:21.937 +02:00 [INF] Received HTTP response headers after 36.1012ms - 401
+2025-06-08 23:19:21.938 +02:00 [INF] End processing HTTP request after 38.5237ms - 401
+2025-06-08 23:19:21.939 +02:00 [ERR] Błąd API pogody. Status: "Unauthorized", Odpowiedź: {"cod":401, "message": "Invalid API key. Please see https://openweathermap.org/faq#error401 for more info."}
+2025-06-08 23:19:21.939 +02:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-06-08 23:19:21.940 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem) in 41.9486ms
+2025-06-08 23:19:21.941 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:19:21.942 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - 404 null application/problem+json; charset=utf-8 47.8262ms
+2025-06-08 23:19:25.042 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/ - null null
+2025-06-08 23:19:25.045 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem)'
+2025-06-08 23:19:25.046 +02:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller OgloszeniaSytem.Controllers.HomeController (OgloszeniaSytem).
+2025-06-08 23:19:25.047 +02:00 [INF] Ładowanie strony głównej...
+2025-06-08 23:19:25.048 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis"
+FROM "Kategorie" AS "k"
+2025-06-08 23:19:25.050 +02:00 [INF] Znaleziono 8 kategorii
+2025-06-08 23:19:25.051 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."AutorId", "t"."Cena", "t"."CzyAktywne", "t"."DataPublikacji", "t"."DataWaznosci", "t"."KategoriaId", "t"."LiczbaWyswietlen", "t"."LokalizacjaId", "t"."Opis", "t"."Tytul", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM (
+    SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul"
+    FROM "Ogloszenia" AS "o"
+    WHERE "o"."CzyAktywne"
+    ORDER BY "o"."DataPublikacji" DESC
+    LIMIT @__p_0
+) AS "t"
+INNER JOIN "Kategorie" AS "k" ON "t"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "t"."LokalizacjaId" = "l"."Id"
+INNER JOIN "AspNetUsers" AS "a" ON "t"."AutorId" = "a"."Id"
+ORDER BY "t"."DataPublikacji" DESC
+2025-06-08 23:19:25.052 +02:00 [INF] Znaleziono 2 ogłoszeń
+2025-06-08 23:19:25.053 +02:00 [INF] Executing ViewResult, running view Index.
+2025-06-08 23:19:25.055 +02:00 [INF] Executed ViewResult - view Index executed in 1.8901ms.
+2025-06-08 23:19:25.056 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem) in 8.8797ms
+2025-06-08 23:19:25.057 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem)'
+2025-06-08 23:19:25.057 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/ - 200 null text/html; charset=utf-8 14.9055ms
+2025-06-08 23:19:25.084 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - null null
+2025-06-08 23:19:25.086 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:19:25.087 +02:00 [INF] Route matched with {action = "GetWeather", controller = "Api", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetWeather(System.String) on controller OgloszeniaSytem.Controllers.ApiController (OgloszeniaSytem).
+2025-06-08 23:19:25.088 +02:00 [INF] Wysyłanie zapytania do: https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:19:25.089 +02:00 [INF] Start processing HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:19:25.090 +02:00 [INF] Sending HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:19:25.127 +02:00 [INF] Received HTTP response headers after 36.765ms - 401
+2025-06-08 23:19:25.128 +02:00 [INF] End processing HTTP request after 39.5643ms - 401
+2025-06-08 23:19:25.129 +02:00 [ERR] Błąd API pogody. Status: "Unauthorized", Odpowiedź: {"cod":401, "message": "Invalid API key. Please see https://openweathermap.org/faq#error401 for more info."}
+2025-06-08 23:19:25.130 +02:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-06-08 23:19:25.131 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem) in 43.4653ms
+2025-06-08 23:19:25.132 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:19:25.133 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - 404 null application/problem+json; charset=utf-8 49.0016ms
+2025-06-08 23:24:25.155 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - null null
+2025-06-08 23:24:25.157 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:24:25.158 +02:00 [INF] Route matched with {action = "GetWeather", controller = "Api", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetWeather(System.String) on controller OgloszeniaSytem.Controllers.ApiController (OgloszeniaSytem).
+2025-06-08 23:24:25.159 +02:00 [INF] Wysyłanie zapytania do: https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:24:25.160 +02:00 [INF] Start processing HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:24:25.161 +02:00 [INF] Sending HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:24:25.274 +02:00 [INF] Received HTTP response headers after 111.7971ms - 401
+2025-06-08 23:24:25.275 +02:00 [INF] End processing HTTP request after 114.5839ms - 401
+2025-06-08 23:24:25.276 +02:00 [ERR] Błąd API pogody. Status: "Unauthorized", Odpowiedź: {"cod":401, "message": "Invalid API key. Please see https://openweathermap.org/faq#error401 for more info."}
+2025-06-08 23:24:25.277 +02:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-06-08 23:24:25.277 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem) in 118.432ms
+2025-06-08 23:24:25.278 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:24:25.279 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - 404 null application/problem+json; charset=utf-8 124.251ms
+2025-06-08 23:27:15.572 +02:00 [INF] Application is shutting down...
+2025-06-08 23:43:17.161 +02:00 [INF] User profile is available. Using 'C:\Users\adam\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-08 23:43:17.325 +02:00 [INF] Inicjalizacja bazy danych...
+2025-06-08 23:43:17.730 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2025-06-08 23:43:17.736 +02:00 [INF] Wypełnianie danymi startowymi...
+2025-06-08 23:43:17.886 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedName_0='?' (Size = 5)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-06-08 23:43:17.922 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedName_0='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-06-08 23:43:17.930 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 19)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2025-06-08 23:43:17.982 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Kategorie" AS "k")
+2025-06-08 23:43:17.985 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Lokalizacje" AS "l")
+2025-06-08 23:43:17.988 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Ogloszenia" AS "o")
+2025-06-08 23:43:17.989 +02:00 [INF] Inicjalizacja danych zakończona pomyślnie
+2025-06-08 23:43:17.991 +02:00 [INF] Baza danych zainicjalizowana pomyślnie
+2025-06-08 23:43:18.030 +02:00 [INF] Now listening on: http://localhost:5025
+2025-06-08 23:43:18.031 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-08 23:43:18.032 +02:00 [INF] Hosting environment: Development
+2025-06-08 23:43:18.032 +02:00 [INF] Content root path: C:\Users\adam\RiderProjects\OgloszeniaSytem
+2025-06-08 23:43:19.663 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/ - null null
+2025-06-08 23:43:19.667 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-06-08 23:43:19.700 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem)'
+2025-06-08 23:43:19.708 +02:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller OgloszeniaSytem.Controllers.HomeController (OgloszeniaSytem).
+2025-06-08 23:43:19.714 +02:00 [INF] Ładowanie strony głównej...
+2025-06-08 23:43:19.760 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis"
+FROM "Kategorie" AS "k"
+2025-06-08 23:43:19.771 +02:00 [INF] Znaleziono 8 kategorii
+2025-06-08 23:43:19.776 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo"
+FROM "Lokalizacje" AS "l"
+2025-06-08 23:43:19.785 +02:00 [INF] Znaleziono 6 lokalizacji
+2025-06-08 23:43:19.847 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."AutorId", "t"."Cena", "t"."CzyAktywne", "t"."DataPublikacji", "t"."DataWaznosci", "t"."KategoriaId", "t"."LiczbaWyswietlen", "t"."LokalizacjaId", "t"."Opis", "t"."Tytul", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName", "z"."Id", "z"."AltText", "z"."DataDodania", "z"."NazwaPliku", "z"."OgloszenieId", "z"."RozmiarPliku"
+FROM (
+    SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul"
+    FROM "Ogloszenia" AS "o"
+    WHERE "o"."CzyAktywne"
+    ORDER BY "o"."DataPublikacji" DESC
+    LIMIT @__p_0
+) AS "t"
+INNER JOIN "Kategorie" AS "k" ON "t"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "t"."LokalizacjaId" = "l"."Id"
+INNER JOIN "AspNetUsers" AS "a" ON "t"."AutorId" = "a"."Id"
+LEFT JOIN "Zdjecia" AS "z" ON "t"."Id" = "z"."OgloszenieId"
+ORDER BY "t"."DataPublikacji" DESC, "t"."Id", "k"."Id", "l"."Id", "a"."Id"
+2025-06-08 23:43:19.878 +02:00 [INF] Znaleziono 2 ogłoszeń
+2025-06-08 23:43:19.901 +02:00 [INF] Executing ViewResult, running view Index.
+2025-06-08 23:43:19.997 +02:00 [INF] Executed ViewResult - view Index executed in 96.6611ms.
+2025-06-08 23:43:20.000 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem) in 289.9395ms
+2025-06-08 23:43:20.001 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem)'
+2025-06-08 23:43:20.007 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/ - 200 null text/html; charset=utf-8 344.3429ms
+2025-06-08 23:43:20.210 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - null null
+2025-06-08 23:43:20.220 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:43:20.230 +02:00 [INF] Route matched with {action = "GetWeather", controller = "Api", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetWeather(System.String) on controller OgloszeniaSytem.Controllers.ApiController (OgloszeniaSytem).
+2025-06-08 23:43:20.247 +02:00 [INF] Wysyłanie zapytania do: https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:43:20.253 +02:00 [INF] Start processing HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:43:20.256 +02:00 [INF] Sending HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:43:20.434 +02:00 [INF] Received HTTP response headers after 174.0914ms - 401
+2025-06-08 23:43:20.436 +02:00 [INF] End processing HTTP request after 186.4953ms - 401
+2025-06-08 23:43:20.440 +02:00 [ERR] Błąd API pogody. Status: "Unauthorized", Odpowiedź: {"cod":401, "message": "Invalid API key. Please see https://openweathermap.org/faq#error401 for more info."}
+2025-06-08 23:43:20.447 +02:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-06-08 23:43:20.473 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem) in 242.0013ms
+2025-06-08 23:43:20.475 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:43:20.477 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - 404 null application/problem+json; charset=utf-8 266.5015ms
+2025-06-08 23:43:27.747 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Listing?search=iPhone&kategoria=&lokalizacja= - null null
+2025-06-08 23:43:27.767 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.ListingController.Index (OgloszeniaSytem)'
+2025-06-08 23:43:27.772 +02:00 [INF] Route matched with {action = "Index", controller = "Listing", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, System.String, System.String, Int32) on controller OgloszeniaSytem.Controllers.ListingController (OgloszeniaSytem).
+2025-06-08 23:43:27.777 +02:00 [INF] Pobieranie listy ogłoszeń dla kategorii: null, lokalizacji: null, wyszukiwania: iPhone
+2025-06-08 23:43:27.806 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__searchLower_0='?' (Size = 6)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Ogloszenia" AS "o"
+INNER JOIN "Kategorie" AS "k" ON "o"."KategoriaId" = "k"."Id"
+WHERE "o"."CzyAktywne" AND (instr(lower("o"."Tytul"), @__searchLower_0) > 0 OR instr(lower("o"."Opis"), @__searchLower_0) > 0 OR instr(lower("k"."Nazwa"), @__searchLower_0) > 0)
+2025-06-08 23:43:27.822 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__searchLower_0='?' (Size = 6), @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."AutorId", "t"."Cena", "t"."CzyAktywne", "t"."DataPublikacji", "t"."DataWaznosci", "t"."KategoriaId", "t"."LiczbaWyswietlen", "t"."LokalizacjaId", "t"."Opis", "t"."Tytul", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName", "t"."Id0", "t"."Ikona", "t"."Nazwa", "t"."Opis0", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo"
+FROM (
+    SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul", "k"."Id" AS "Id0", "k"."Ikona", "k"."Nazwa", "k"."Opis" AS "Opis0"
+    FROM "Ogloszenia" AS "o"
+    INNER JOIN "Kategorie" AS "k" ON "o"."KategoriaId" = "k"."Id"
+    WHERE "o"."CzyAktywne" AND (instr(lower("o"."Tytul"), @__searchLower_0) > 0 OR instr(lower("o"."Opis"), @__searchLower_0) > 0 OR instr(lower("k"."Nazwa"), @__searchLower_0) > 0)
+    ORDER BY "o"."DataPublikacji" DESC
+    LIMIT @__p_2 OFFSET @__p_1
+) AS "t"
+INNER JOIN "AspNetUsers" AS "a" ON "t"."AutorId" = "a"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "t"."LokalizacjaId" = "l"."Id"
+ORDER BY "t"."DataPublikacji" DESC
+2025-06-08 23:43:27.825 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis"
+FROM "Kategorie" AS "k"
+2025-06-08 23:43:27.829 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo"
+FROM "Lokalizacje" AS "l"
+2025-06-08 23:43:27.836 +02:00 [INF] Executing ViewResult, running view Index.
+2025-06-08 23:43:27.857 +02:00 [INF] Executed ViewResult - view Index executed in 21.2736ms.
+2025-06-08 23:43:27.858 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.ListingController.Index (OgloszeniaSytem) in 84.1314ms
+2025-06-08 23:43:27.859 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.ListingController.Index (OgloszeniaSytem)'
+2025-06-08 23:43:27.860 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Listing?search=iPhone&kategoria=&lokalizacja= - 200 null text/html; charset=utf-8 113.3783ms
+2025-06-08 23:43:27.889 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - null null
+2025-06-08 23:43:27.893 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:43:27.894 +02:00 [INF] Route matched with {action = "GetWeather", controller = "Api", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetWeather(System.String) on controller OgloszeniaSytem.Controllers.ApiController (OgloszeniaSytem).
+2025-06-08 23:43:27.897 +02:00 [INF] Wysyłanie zapytania do: https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:43:27.898 +02:00 [INF] Start processing HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:43:27.899 +02:00 [INF] Sending HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:43:27.928 +02:00 [INF] Received HTTP response headers after 28.0926ms - 401
+2025-06-08 23:43:27.929 +02:00 [INF] End processing HTTP request after 31.2581ms - 401
+2025-06-08 23:43:27.931 +02:00 [ERR] Błąd API pogody. Status: "Unauthorized", Odpowiedź: {"cod":401, "message": "Invalid API key. Please see https://openweathermap.org/faq#error401 for more info."}
+2025-06-08 23:43:27.932 +02:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-06-08 23:43:27.934 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem) in 38.2453ms
+2025-06-08 23:43:27.935 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:43:27.936 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - 404 null application/problem+json; charset=utf-8 47.2324ms
+2025-06-08 23:43:36.035 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Listing?search=Dell&kategoria=&lokalizacja= - null null
+2025-06-08 23:43:36.038 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.ListingController.Index (OgloszeniaSytem)'
+2025-06-08 23:43:36.039 +02:00 [INF] Route matched with {action = "Index", controller = "Listing", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, System.String, System.String, Int32) on controller OgloszeniaSytem.Controllers.ListingController (OgloszeniaSytem).
+2025-06-08 23:43:36.041 +02:00 [INF] Pobieranie listy ogłoszeń dla kategorii: null, lokalizacji: null, wyszukiwania: Dell
+2025-06-08 23:43:36.043 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__searchLower_0='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Ogloszenia" AS "o"
+INNER JOIN "Kategorie" AS "k" ON "o"."KategoriaId" = "k"."Id"
+WHERE "o"."CzyAktywne" AND (instr(lower("o"."Tytul"), @__searchLower_0) > 0 OR instr(lower("o"."Opis"), @__searchLower_0) > 0 OR instr(lower("k"."Nazwa"), @__searchLower_0) > 0)
+2025-06-08 23:43:36.046 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__searchLower_0='?' (Size = 4), @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."AutorId", "t"."Cena", "t"."CzyAktywne", "t"."DataPublikacji", "t"."DataWaznosci", "t"."KategoriaId", "t"."LiczbaWyswietlen", "t"."LokalizacjaId", "t"."Opis", "t"."Tytul", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName", "t"."Id0", "t"."Ikona", "t"."Nazwa", "t"."Opis0", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo"
+FROM (
+    SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul", "k"."Id" AS "Id0", "k"."Ikona", "k"."Nazwa", "k"."Opis" AS "Opis0"
+    FROM "Ogloszenia" AS "o"
+    INNER JOIN "Kategorie" AS "k" ON "o"."KategoriaId" = "k"."Id"
+    WHERE "o"."CzyAktywne" AND (instr(lower("o"."Tytul"), @__searchLower_0) > 0 OR instr(lower("o"."Opis"), @__searchLower_0) > 0 OR instr(lower("k"."Nazwa"), @__searchLower_0) > 0)
+    ORDER BY "o"."DataPublikacji" DESC
+    LIMIT @__p_2 OFFSET @__p_1
+) AS "t"
+INNER JOIN "AspNetUsers" AS "a" ON "t"."AutorId" = "a"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "t"."LokalizacjaId" = "l"."Id"
+ORDER BY "t"."DataPublikacji" DESC
+2025-06-08 23:43:36.050 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis"
+FROM "Kategorie" AS "k"
+2025-06-08 23:43:36.052 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo"
+FROM "Lokalizacje" AS "l"
+2025-06-08 23:43:36.054 +02:00 [INF] Executing ViewResult, running view Index.
+2025-06-08 23:43:36.057 +02:00 [INF] Executed ViewResult - view Index executed in 3.2088ms.
+2025-06-08 23:43:36.059 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.ListingController.Index (OgloszeniaSytem) in 17.9682ms
+2025-06-08 23:43:36.060 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.ListingController.Index (OgloszeniaSytem)'
+2025-06-08 23:43:36.061 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Listing?search=Dell&kategoria=&lokalizacja= - 200 null text/html; charset=utf-8 25.4537ms
+2025-06-08 23:43:36.089 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - null null
+2025-06-08 23:43:36.091 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:43:36.093 +02:00 [INF] Route matched with {action = "GetWeather", controller = "Api", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetWeather(System.String) on controller OgloszeniaSytem.Controllers.ApiController (OgloszeniaSytem).
+2025-06-08 23:43:36.095 +02:00 [INF] Wysyłanie zapytania do: https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:43:36.096 +02:00 [INF] Start processing HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:43:36.097 +02:00 [INF] Sending HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:43:36.126 +02:00 [INF] Received HTTP response headers after 28.1191ms - 401
+2025-06-08 23:43:36.127 +02:00 [INF] End processing HTTP request after 31.2195ms - 401
+2025-06-08 23:43:36.129 +02:00 [ERR] Błąd API pogody. Status: "Unauthorized", Odpowiedź: {"cod":401, "message": "Invalid API key. Please see https://openweathermap.org/faq#error401 for more info."}
+2025-06-08 23:43:36.130 +02:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-06-08 23:43:36.131 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem) in 36.823ms
+2025-06-08 23:43:36.132 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:43:36.133 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - 404 null application/problem+json; charset=utf-8 44.0303ms
+2025-06-08 23:44:53.502 +02:00 [INF] Application is shutting down...
+2025-06-08 23:45:00.679 +02:00 [INF] User profile is available. Using 'C:\Users\adam\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-06-08 23:45:00.844 +02:00 [INF] Inicjalizacja bazy danych...
+2025-06-08 23:45:01.265 +02:00 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2025-06-08 23:45:01.271 +02:00 [INF] Wypełnianie danymi startowymi...
+2025-06-08 23:45:01.421 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedName_0='?' (Size = 5)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-06-08 23:45:01.454 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedName_0='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-06-08 23:45:01.462 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 19)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2025-06-08 23:45:01.515 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Kategorie" AS "k")
+2025-06-08 23:45:01.518 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Lokalizacje" AS "l")
+2025-06-08 23:45:01.521 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Ogloszenia" AS "o")
+2025-06-08 23:45:01.522 +02:00 [INF] Inicjalizacja danych zakończona pomyślnie
+2025-06-08 23:45:01.524 +02:00 [INF] Baza danych zainicjalizowana pomyślnie
+2025-06-08 23:45:01.565 +02:00 [INF] Now listening on: http://localhost:5025
+2025-06-08 23:45:01.566 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-06-08 23:45:01.566 +02:00 [INF] Hosting environment: Development
+2025-06-08 23:45:01.567 +02:00 [INF] Content root path: C:\Users\adam\RiderProjects\OgloszeniaSytem
+2025-06-08 23:45:04.220 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/ - null null
+2025-06-08 23:45:04.224 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-06-08 23:45:04.303 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-06-08 23:45:04.331 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ClaimType", "a"."ClaimValue", "a"."UserId"
+FROM "AspNetUserClaims" AS "a"
+WHERE "a"."UserId" = @__user_Id_0
+2025-06-08 23:45:04.345 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-06-08 23:45:04.347 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedName_0='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-06-08 23:45:04.352 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__role_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."ClaimType", "a"."ClaimValue"
+FROM "AspNetRoleClaims" AS "a"
+WHERE "a"."RoleId" = @__role_Id_0
+2025-06-08 23:45:04.357 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem)'
+2025-06-08 23:45:04.365 +02:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller OgloszeniaSytem.Controllers.HomeController (OgloszeniaSytem).
+2025-06-08 23:45:04.370 +02:00 [INF] Ładowanie strony głównej...
+2025-06-08 23:45:04.374 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis"
+FROM "Kategorie" AS "k"
+2025-06-08 23:45:04.385 +02:00 [INF] Znaleziono 8 kategorii
+2025-06-08 23:45:04.390 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo"
+FROM "Lokalizacje" AS "l"
+2025-06-08 23:45:04.398 +02:00 [INF] Znaleziono 6 lokalizacji
+2025-06-08 23:45:04.442 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."AutorId", "t"."Cena", "t"."CzyAktywne", "t"."DataPublikacji", "t"."DataWaznosci", "t"."KategoriaId", "t"."LiczbaWyswietlen", "t"."LokalizacjaId", "t"."Opis", "t"."Tytul", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName", "z"."Id", "z"."AltText", "z"."DataDodania", "z"."NazwaPliku", "z"."OgloszenieId", "z"."RozmiarPliku"
+FROM (
+    SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul"
+    FROM "Ogloszenia" AS "o"
+    WHERE "o"."CzyAktywne"
+    ORDER BY "o"."DataPublikacji" DESC
+    LIMIT @__p_0
+) AS "t"
+INNER JOIN "Kategorie" AS "k" ON "t"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "t"."LokalizacjaId" = "l"."Id"
+INNER JOIN "AspNetUsers" AS "a" ON "t"."AutorId" = "a"."Id"
+LEFT JOIN "Zdjecia" AS "z" ON "t"."Id" = "z"."OgloszenieId"
+ORDER BY "t"."DataPublikacji" DESC, "t"."Id", "k"."Id", "l"."Id", "a"."Id"
+2025-06-08 23:45:04.474 +02:00 [INF] Znaleziono 2 ogłoszeń
+2025-06-08 23:45:04.496 +02:00 [INF] Executing ViewResult, running view Index.
+2025-06-08 23:45:04.612 +02:00 [INF] Executed ViewResult - view Index executed in 116.5611ms.
+2025-06-08 23:45:04.614 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem) in 247.579ms
+2025-06-08 23:45:04.616 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem)'
+2025-06-08 23:45:04.621 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/ - 200 null text/html; charset=utf-8 401.8206ms
+2025-06-08 23:45:04.849 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - null null
+2025-06-08 23:45:04.863 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:45:04.880 +02:00 [INF] Route matched with {action = "GetWeather", controller = "Api", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetWeather(System.String) on controller OgloszeniaSytem.Controllers.ApiController (OgloszeniaSytem).
+2025-06-08 23:45:04.903 +02:00 [INF] Wysyłanie zapytania do: https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:45:04.908 +02:00 [INF] Start processing HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:45:04.911 +02:00 [INF] Sending HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:45:05.087 +02:00 [INF] Received HTTP response headers after 172.9702ms - 401
+2025-06-08 23:45:05.089 +02:00 [INF] End processing HTTP request after 183.4477ms - 401
+2025-06-08 23:45:05.092 +02:00 [ERR] Błąd API pogody. Status: "Unauthorized", Odpowiedź: {"cod":401, "message": "Invalid API key. Please see https://openweathermap.org/faq#error401 for more info."}
+2025-06-08 23:45:05.097 +02:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-06-08 23:45:05.129 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem) in 246.911ms
+2025-06-08 23:45:05.130 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:45:05.132 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - 404 null application/problem+json; charset=utf-8 283.0019ms
+2025-06-08 23:45:08.287 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Listing?search=&kategoria=&lokalizacja=Warszawa - null null
+2025-06-08 23:45:08.301 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.ListingController.Index (OgloszeniaSytem)'
+2025-06-08 23:45:08.306 +02:00 [INF] Route matched with {action = "Index", controller = "Listing", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, System.String, System.String, Int32) on controller OgloszeniaSytem.Controllers.ListingController (OgloszeniaSytem).
+2025-06-08 23:45:08.311 +02:00 [INF] Pobieranie listy ogłoszeń dla kategorii: null, lokalizacji: Warszawa, wyszukiwania: null
+2025-06-08 23:45:08.335 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__lokalizacja_0='?' (Size = 8)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Ogloszenia" AS "o"
+INNER JOIN "Lokalizacje" AS "l" ON "o"."LokalizacjaId" = "l"."Id"
+WHERE "o"."CzyAktywne" AND "l"."Nazwa" = @__lokalizacja_0
+2025-06-08 23:45:08.351 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__lokalizacja_0='?' (Size = 8), @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."AutorId", "t"."Cena", "t"."CzyAktywne", "t"."DataPublikacji", "t"."DataWaznosci", "t"."KategoriaId", "t"."LiczbaWyswietlen", "t"."LokalizacjaId", "t"."Opis", "t"."Tytul", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "t"."Id0", "t"."Kod", "t"."Nazwa", "t"."Wojewodztwo"
+FROM (
+    SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul", "l"."Id" AS "Id0", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo"
+    FROM "Ogloszenia" AS "o"
+    INNER JOIN "Lokalizacje" AS "l" ON "o"."LokalizacjaId" = "l"."Id"
+    WHERE "o"."CzyAktywne" AND "l"."Nazwa" = @__lokalizacja_0
+    ORDER BY "o"."DataPublikacji" DESC
+    LIMIT @__p_2 OFFSET @__p_1
+) AS "t"
+INNER JOIN "AspNetUsers" AS "a" ON "t"."AutorId" = "a"."Id"
+INNER JOIN "Kategorie" AS "k" ON "t"."KategoriaId" = "k"."Id"
+ORDER BY "t"."DataPublikacji" DESC
+2025-06-08 23:45:08.356 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis"
+FROM "Kategorie" AS "k"
+2025-06-08 23:45:08.359 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo"
+FROM "Lokalizacje" AS "l"
+2025-06-08 23:45:08.365 +02:00 [INF] Executing ViewResult, running view Index.
+2025-06-08 23:45:08.385 +02:00 [INF] Executed ViewResult - view Index executed in 21.2194ms.
+2025-06-08 23:45:08.386 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.ListingController.Index (OgloszeniaSytem) in 78.7067ms
+2025-06-08 23:45:08.387 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.ListingController.Index (OgloszeniaSytem)'
+2025-06-08 23:45:08.389 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Listing?search=&kategoria=&lokalizacja=Warszawa - 200 null text/html; charset=utf-8 101.4841ms
+2025-06-08 23:45:08.418 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - null null
+2025-06-08 23:45:08.421 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:45:08.422 +02:00 [INF] Route matched with {action = "GetWeather", controller = "Api", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetWeather(System.String) on controller OgloszeniaSytem.Controllers.ApiController (OgloszeniaSytem).
+2025-06-08 23:45:08.425 +02:00 [INF] Wysyłanie zapytania do: https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:45:08.426 +02:00 [INF] Start processing HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:45:08.427 +02:00 [INF] Sending HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:45:08.464 +02:00 [INF] Received HTTP response headers after 35.8463ms - 401
+2025-06-08 23:45:08.465 +02:00 [INF] End processing HTTP request after 38.7706ms - 401
+2025-06-08 23:45:08.466 +02:00 [ERR] Błąd API pogody. Status: "Unauthorized", Odpowiedź: {"cod":401, "message": "Invalid API key. Please see https://openweathermap.org/faq#error401 for more info."}
+2025-06-08 23:45:08.467 +02:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-06-08 23:45:08.468 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem) in 44.8498ms
+2025-06-08 23:45:08.469 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:45:08.470 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - 404 null application/problem+json; charset=utf-8 52.2272ms
+2025-06-08 23:45:09.921 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/ - null null
+2025-06-08 23:45:09.925 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem)'
+2025-06-08 23:45:09.926 +02:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller OgloszeniaSytem.Controllers.HomeController (OgloszeniaSytem).
+2025-06-08 23:45:09.927 +02:00 [INF] Ładowanie strony głównej...
+2025-06-08 23:45:09.929 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis"
+FROM "Kategorie" AS "k"
+2025-06-08 23:45:09.931 +02:00 [INF] Znaleziono 8 kategorii
+2025-06-08 23:45:09.933 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo"
+FROM "Lokalizacje" AS "l"
+2025-06-08 23:45:09.934 +02:00 [INF] Znaleziono 6 lokalizacji
+2025-06-08 23:45:09.936 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."AutorId", "t"."Cena", "t"."CzyAktywne", "t"."DataPublikacji", "t"."DataWaznosci", "t"."KategoriaId", "t"."LiczbaWyswietlen", "t"."LokalizacjaId", "t"."Opis", "t"."Tytul", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName", "z"."Id", "z"."AltText", "z"."DataDodania", "z"."NazwaPliku", "z"."OgloszenieId", "z"."RozmiarPliku"
+FROM (
+    SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul"
+    FROM "Ogloszenia" AS "o"
+    WHERE "o"."CzyAktywne"
+    ORDER BY "o"."DataPublikacji" DESC
+    LIMIT @__p_0
+) AS "t"
+INNER JOIN "Kategorie" AS "k" ON "t"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "t"."LokalizacjaId" = "l"."Id"
+INNER JOIN "AspNetUsers" AS "a" ON "t"."AutorId" = "a"."Id"
+LEFT JOIN "Zdjecia" AS "z" ON "t"."Id" = "z"."OgloszenieId"
+ORDER BY "t"."DataPublikacji" DESC, "t"."Id", "k"."Id", "l"."Id", "a"."Id"
+2025-06-08 23:45:09.939 +02:00 [INF] Znaleziono 2 ogłoszeń
+2025-06-08 23:45:09.940 +02:00 [INF] Executing ViewResult, running view Index.
+2025-06-08 23:45:09.943 +02:00 [INF] Executed ViewResult - view Index executed in 3.4333ms.
+2025-06-08 23:45:09.944 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem) in 17.1921ms
+2025-06-08 23:45:09.945 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem)'
+2025-06-08 23:45:09.946 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/ - 200 null text/html; charset=utf-8 25.1033ms
+2025-06-08 23:45:09.990 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - null null
+2025-06-08 23:45:09.993 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:45:09.994 +02:00 [INF] Route matched with {action = "GetWeather", controller = "Api", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetWeather(System.String) on controller OgloszeniaSytem.Controllers.ApiController (OgloszeniaSytem).
+2025-06-08 23:45:09.997 +02:00 [INF] Wysyłanie zapytania do: https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:45:09.998 +02:00 [INF] Start processing HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:45:09.999 +02:00 [INF] Sending HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:45:10.034 +02:00 [INF] Received HTTP response headers after 33.6493ms - 401
+2025-06-08 23:45:10.035 +02:00 [INF] End processing HTTP request after 36.6118ms - 401
+2025-06-08 23:45:10.036 +02:00 [ERR] Błąd API pogody. Status: "Unauthorized", Odpowiedź: {"cod":401, "message": "Invalid API key. Please see https://openweathermap.org/faq#error401 for more info."}
+2025-06-08 23:45:10.037 +02:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-06-08 23:45:10.038 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem) in 42.7733ms
+2025-06-08 23:45:10.040 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:45:10.041 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - 404 null application/problem+json; charset=utf-8 50.4903ms
+2025-06-08 23:45:14.478 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Listing?search=Dell&kategoria=&lokalizacja= - null null
+2025-06-08 23:45:14.482 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.ListingController.Index (OgloszeniaSytem)'
+2025-06-08 23:45:14.483 +02:00 [INF] Route matched with {action = "Index", controller = "Listing", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, System.String, System.String, Int32) on controller OgloszeniaSytem.Controllers.ListingController (OgloszeniaSytem).
+2025-06-08 23:45:14.485 +02:00 [INF] Pobieranie listy ogłoszeń dla kategorii: null, lokalizacji: null, wyszukiwania: Dell
+2025-06-08 23:45:14.494 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__searchLower_0='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Ogloszenia" AS "o"
+INNER JOIN "Kategorie" AS "k" ON "o"."KategoriaId" = "k"."Id"
+WHERE "o"."CzyAktywne" AND (instr(lower("o"."Tytul"), @__searchLower_0) > 0 OR instr(lower("o"."Opis"), @__searchLower_0) > 0 OR instr(lower("k"."Nazwa"), @__searchLower_0) > 0)
+2025-06-08 23:45:14.503 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__searchLower_0='?' (Size = 4), @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."AutorId", "t"."Cena", "t"."CzyAktywne", "t"."DataPublikacji", "t"."DataWaznosci", "t"."KategoriaId", "t"."LiczbaWyswietlen", "t"."LokalizacjaId", "t"."Opis", "t"."Tytul", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName", "t"."Id0", "t"."Ikona", "t"."Nazwa", "t"."Opis0", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo"
+FROM (
+    SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul", "k"."Id" AS "Id0", "k"."Ikona", "k"."Nazwa", "k"."Opis" AS "Opis0"
+    FROM "Ogloszenia" AS "o"
+    INNER JOIN "Kategorie" AS "k" ON "o"."KategoriaId" = "k"."Id"
+    WHERE "o"."CzyAktywne" AND (instr(lower("o"."Tytul"), @__searchLower_0) > 0 OR instr(lower("o"."Opis"), @__searchLower_0) > 0 OR instr(lower("k"."Nazwa"), @__searchLower_0) > 0)
+    ORDER BY "o"."DataPublikacji" DESC
+    LIMIT @__p_2 OFFSET @__p_1
+) AS "t"
+INNER JOIN "AspNetUsers" AS "a" ON "t"."AutorId" = "a"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "t"."LokalizacjaId" = "l"."Id"
+ORDER BY "t"."DataPublikacji" DESC
+2025-06-08 23:45:14.506 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis"
+FROM "Kategorie" AS "k"
+2025-06-08 23:45:14.508 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo"
+FROM "Lokalizacje" AS "l"
+2025-06-08 23:45:14.511 +02:00 [INF] Executing ViewResult, running view Index.
+2025-06-08 23:45:14.513 +02:00 [INF] Executed ViewResult - view Index executed in 2.2749ms.
+2025-06-08 23:45:14.515 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.ListingController.Index (OgloszeniaSytem) in 30.0901ms
+2025-06-08 23:45:14.515 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.ListingController.Index (OgloszeniaSytem)'
+2025-06-08 23:45:14.517 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Listing?search=Dell&kategoria=&lokalizacja= - 200 null text/html; charset=utf-8 38.0835ms
+2025-06-08 23:45:14.558 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - null null
+2025-06-08 23:45:14.560 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:45:14.561 +02:00 [INF] Route matched with {action = "GetWeather", controller = "Api", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetWeather(System.String) on controller OgloszeniaSytem.Controllers.ApiController (OgloszeniaSytem).
+2025-06-08 23:45:14.563 +02:00 [INF] Wysyłanie zapytania do: https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:45:14.564 +02:00 [INF] Start processing HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:45:14.565 +02:00 [INF] Sending HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:45:14.599 +02:00 [INF] Received HTTP response headers after 33.2995ms - 401
+2025-06-08 23:45:14.600 +02:00 [INF] End processing HTTP request after 36.16ms - 401
+2025-06-08 23:45:14.601 +02:00 [ERR] Błąd API pogody. Status: "Unauthorized", Odpowiedź: {"cod":401, "message": "Invalid API key. Please see https://openweathermap.org/faq#error401 for more info."}
+2025-06-08 23:45:14.603 +02:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-06-08 23:45:14.604 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem) in 41.0574ms
+2025-06-08 23:45:14.605 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:45:14.606 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - 404 null application/problem+json; charset=utf-8 47.8547ms
+2025-06-08 23:45:16.361 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/ - null null
+2025-06-08 23:45:16.363 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem)'
+2025-06-08 23:45:16.364 +02:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller OgloszeniaSytem.Controllers.HomeController (OgloszeniaSytem).
+2025-06-08 23:45:16.366 +02:00 [INF] Ładowanie strony głównej...
+2025-06-08 23:45:16.367 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis"
+FROM "Kategorie" AS "k"
+2025-06-08 23:45:16.369 +02:00 [INF] Znaleziono 8 kategorii
+2025-06-08 23:45:16.370 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo"
+FROM "Lokalizacje" AS "l"
+2025-06-08 23:45:16.372 +02:00 [INF] Znaleziono 6 lokalizacji
+2025-06-08 23:45:16.373 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."AutorId", "t"."Cena", "t"."CzyAktywne", "t"."DataPublikacji", "t"."DataWaznosci", "t"."KategoriaId", "t"."LiczbaWyswietlen", "t"."LokalizacjaId", "t"."Opis", "t"."Tytul", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName", "z"."Id", "z"."AltText", "z"."DataDodania", "z"."NazwaPliku", "z"."OgloszenieId", "z"."RozmiarPliku"
+FROM (
+    SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul"
+    FROM "Ogloszenia" AS "o"
+    WHERE "o"."CzyAktywne"
+    ORDER BY "o"."DataPublikacji" DESC
+    LIMIT @__p_0
+) AS "t"
+INNER JOIN "Kategorie" AS "k" ON "t"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "t"."LokalizacjaId" = "l"."Id"
+INNER JOIN "AspNetUsers" AS "a" ON "t"."AutorId" = "a"."Id"
+LEFT JOIN "Zdjecia" AS "z" ON "t"."Id" = "z"."OgloszenieId"
+ORDER BY "t"."DataPublikacji" DESC, "t"."Id", "k"."Id", "l"."Id", "a"."Id"
+2025-06-08 23:45:16.375 +02:00 [INF] Znaleziono 2 ogłoszeń
+2025-06-08 23:45:16.376 +02:00 [INF] Executing ViewResult, running view Index.
+2025-06-08 23:45:16.378 +02:00 [INF] Executed ViewResult - view Index executed in 1.7426ms.
+2025-06-08 23:45:16.379 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem) in 13.226ms
+2025-06-08 23:45:16.380 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem)'
+2025-06-08 23:45:16.381 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/ - 200 null text/html; charset=utf-8 20.2842ms
+2025-06-08 23:45:16.416 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - null null
+2025-06-08 23:45:16.420 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:45:16.421 +02:00 [INF] Route matched with {action = "GetWeather", controller = "Api", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetWeather(System.String) on controller OgloszeniaSytem.Controllers.ApiController (OgloszeniaSytem).
+2025-06-08 23:45:16.424 +02:00 [INF] Wysyłanie zapytania do: https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:45:16.425 +02:00 [INF] Start processing HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:45:16.426 +02:00 [INF] Sending HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:45:16.460 +02:00 [INF] Received HTTP response headers after 33.7645ms - 401
+2025-06-08 23:45:16.461 +02:00 [INF] End processing HTTP request after 36.8083ms - 401
+2025-06-08 23:45:16.462 +02:00 [ERR] Błąd API pogody. Status: "Unauthorized", Odpowiedź: {"cod":401, "message": "Invalid API key. Please see https://openweathermap.org/faq#error401 for more info."}
+2025-06-08 23:45:16.464 +02:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-06-08 23:45:16.465 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem) in 41.9872ms
+2025-06-08 23:45:16.466 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:45:16.467 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - 404 null application/problem+json; charset=utf-8 51.1756ms
+2025-06-08 23:45:34.197 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Listing?search=Toyota&kategoria=&lokalizacja= - null null
+2025-06-08 23:45:34.201 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.ListingController.Index (OgloszeniaSytem)'
+2025-06-08 23:45:34.202 +02:00 [INF] Route matched with {action = "Index", controller = "Listing", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(System.String, System.String, System.String, Int32) on controller OgloszeniaSytem.Controllers.ListingController (OgloszeniaSytem).
+2025-06-08 23:45:34.204 +02:00 [INF] Pobieranie listy ogłoszeń dla kategorii: null, lokalizacji: null, wyszukiwania: Toyota
+2025-06-08 23:45:34.206 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__searchLower_0='?' (Size = 6)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Ogloszenia" AS "o"
+INNER JOIN "Kategorie" AS "k" ON "o"."KategoriaId" = "k"."Id"
+WHERE "o"."CzyAktywne" AND (instr(lower("o"."Tytul"), @__searchLower_0) > 0 OR instr(lower("o"."Opis"), @__searchLower_0) > 0 OR instr(lower("k"."Nazwa"), @__searchLower_0) > 0)
+2025-06-08 23:45:34.208 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__searchLower_0='?' (Size = 6), @__p_2='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."AutorId", "t"."Cena", "t"."CzyAktywne", "t"."DataPublikacji", "t"."DataWaznosci", "t"."KategoriaId", "t"."LiczbaWyswietlen", "t"."LokalizacjaId", "t"."Opis", "t"."Tytul", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName", "t"."Id0", "t"."Ikona", "t"."Nazwa", "t"."Opis0", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo"
+FROM (
+    SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul", "k"."Id" AS "Id0", "k"."Ikona", "k"."Nazwa", "k"."Opis" AS "Opis0"
+    FROM "Ogloszenia" AS "o"
+    INNER JOIN "Kategorie" AS "k" ON "o"."KategoriaId" = "k"."Id"
+    WHERE "o"."CzyAktywne" AND (instr(lower("o"."Tytul"), @__searchLower_0) > 0 OR instr(lower("o"."Opis"), @__searchLower_0) > 0 OR instr(lower("k"."Nazwa"), @__searchLower_0) > 0)
+    ORDER BY "o"."DataPublikacji" DESC
+    LIMIT @__p_2 OFFSET @__p_1
+) AS "t"
+INNER JOIN "AspNetUsers" AS "a" ON "t"."AutorId" = "a"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "t"."LokalizacjaId" = "l"."Id"
+ORDER BY "t"."DataPublikacji" DESC
+2025-06-08 23:45:34.211 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis"
+FROM "Kategorie" AS "k"
+2025-06-08 23:45:34.213 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo"
+FROM "Lokalizacje" AS "l"
+2025-06-08 23:45:34.214 +02:00 [INF] Executing ViewResult, running view Index.
+2025-06-08 23:45:34.217 +02:00 [INF] Executed ViewResult - view Index executed in 2.9068ms.
+2025-06-08 23:45:34.218 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.ListingController.Index (OgloszeniaSytem) in 14.9321ms
+2025-06-08 23:45:34.220 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.ListingController.Index (OgloszeniaSytem)'
+2025-06-08 23:45:34.221 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Listing?search=Toyota&kategoria=&lokalizacja= - 200 null text/html; charset=utf-8 23.3169ms
+2025-06-08 23:45:34.257 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - null null
+2025-06-08 23:45:34.260 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:45:34.261 +02:00 [INF] Route matched with {action = "GetWeather", controller = "Api", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetWeather(System.String) on controller OgloszeniaSytem.Controllers.ApiController (OgloszeniaSytem).
+2025-06-08 23:45:34.263 +02:00 [INF] Wysyłanie zapytania do: https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:45:34.264 +02:00 [INF] Start processing HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:45:34.265 +02:00 [INF] Sending HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:45:34.301 +02:00 [INF] Received HTTP response headers after 35.4522ms - 401
+2025-06-08 23:45:34.302 +02:00 [INF] End processing HTTP request after 38.6751ms - 401
+2025-06-08 23:45:34.303 +02:00 [ERR] Błąd API pogody. Status: "Unauthorized", Odpowiedź: {"cod":401, "message": "Invalid API key. Please see https://openweathermap.org/faq#error401 for more info."}
+2025-06-08 23:45:34.304 +02:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-06-08 23:45:34.305 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem) in 43.0197ms
+2025-06-08 23:45:34.306 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:45:34.307 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - 404 null application/problem+json; charset=utf-8 50.4232ms
+2025-06-08 23:45:36.157 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/ - null null
+2025-06-08 23:45:36.160 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem)'
+2025-06-08 23:45:36.161 +02:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller OgloszeniaSytem.Controllers.HomeController (OgloszeniaSytem).
+2025-06-08 23:45:36.163 +02:00 [INF] Ładowanie strony głównej...
+2025-06-08 23:45:36.165 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis"
+FROM "Kategorie" AS "k"
+2025-06-08 23:45:36.166 +02:00 [INF] Znaleziono 8 kategorii
+2025-06-08 23:45:36.167 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo"
+FROM "Lokalizacje" AS "l"
+2025-06-08 23:45:36.169 +02:00 [INF] Znaleziono 6 lokalizacji
+2025-06-08 23:45:36.170 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."AutorId", "t"."Cena", "t"."CzyAktywne", "t"."DataPublikacji", "t"."DataWaznosci", "t"."KategoriaId", "t"."LiczbaWyswietlen", "t"."LokalizacjaId", "t"."Opis", "t"."Tytul", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName", "z"."Id", "z"."AltText", "z"."DataDodania", "z"."NazwaPliku", "z"."OgloszenieId", "z"."RozmiarPliku"
+FROM (
+    SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul"
+    FROM "Ogloszenia" AS "o"
+    WHERE "o"."CzyAktywne"
+    ORDER BY "o"."DataPublikacji" DESC
+    LIMIT @__p_0
+) AS "t"
+INNER JOIN "Kategorie" AS "k" ON "t"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "t"."LokalizacjaId" = "l"."Id"
+INNER JOIN "AspNetUsers" AS "a" ON "t"."AutorId" = "a"."Id"
+LEFT JOIN "Zdjecia" AS "z" ON "t"."Id" = "z"."OgloszenieId"
+ORDER BY "t"."DataPublikacji" DESC, "t"."Id", "k"."Id", "l"."Id", "a"."Id"
+2025-06-08 23:45:36.173 +02:00 [INF] Znaleziono 2 ogłoszeń
+2025-06-08 23:45:36.174 +02:00 [INF] Executing ViewResult, running view Index.
+2025-06-08 23:45:36.176 +02:00 [INF] Executed ViewResult - view Index executed in 2.3151ms.
+2025-06-08 23:45:36.177 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem) in 14.2812ms
+2025-06-08 23:45:36.178 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem)'
+2025-06-08 23:45:36.180 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/ - 200 null text/html; charset=utf-8 22.5262ms
+2025-06-08 23:45:36.244 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - null null
+2025-06-08 23:45:36.247 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:45:36.247 +02:00 [INF] Route matched with {action = "GetWeather", controller = "Api", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetWeather(System.String) on controller OgloszeniaSytem.Controllers.ApiController (OgloszeniaSytem).
+2025-06-08 23:45:36.249 +02:00 [INF] Wysyłanie zapytania do: https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:45:36.250 +02:00 [INF] Start processing HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:45:36.251 +02:00 [INF] Sending HTTP request GET https://api.openweathermap.org/data/2.5/weather?q=Warszawa&appid=klucz_api&units=metric&lang=pl
+2025-06-08 23:45:36.287 +02:00 [INF] Received HTTP response headers after 34.4666ms - 401
+2025-06-08 23:45:36.288 +02:00 [INF] End processing HTTP request after 38.1646ms - 401
+2025-06-08 23:45:36.290 +02:00 [ERR] Błąd API pogody. Status: "Unauthorized", Odpowiedź: {"cod":401, "message": "Invalid API key. Please see https://openweathermap.org/faq#error401 for more info."}
+2025-06-08 23:45:36.291 +02:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-06-08 23:45:36.292 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem) in 43.294ms
+2025-06-08 23:45:36.293 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.ApiController.GetWeather (OgloszeniaSytem)'
+2025-06-08 23:45:36.295 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/api/Api/weather/Warszawa - 404 null application/problem+json; charset=utf-8 51.0217ms
+2025-06-08 23:45:42.223 +02:00 [INF] Application is shutting down...

@@ -27,11 +27,16 @@ namespace OgloszeniaSytem.Controllers
                 var kategorie = await _context.Kategorie.ToListAsync();
                 _logger.LogInformation("Znaleziono {Count} kategorii", kategorie.Count);
 
+                // Pobierz lokalizacje - DODANE
+                var lokalizacje = await _context.Lokalizacje.ToListAsync();
+                _logger.LogInformation("Znaleziono {Count} lokalizacji", lokalizacje.Count);
+
                 // Pobierz najnowsze ogłoszenia
                 var najnowszeOgloszenia = await _context.Ogloszenia
                     .Include(o => o.Kategoria)
                     .Include(o => o.Lokalizacja)
                     .Include(o => o.Autor)
+                    .Include(o => o.Zdjecia) // DODANE - żeby pobierać zdjęcia
                     .Where(o => o.CzyAktywne)
                     .OrderByDescending(o => o.DataPublikacji)
                     .Take(6)
@@ -41,6 +46,7 @@ namespace OgloszeniaSytem.Controllers
 
                 // Ustaw ViewBag - zawsze ustaw jako listy, nawet jeśli puste
                 ViewBag.Kategorie = kategorie ?? new List<Category>();
+                ViewBag.Lokalizacje = lokalizacje ?? new List<Location>(); // DODANE
                 ViewBag.NajnowszeOgloszenia = najnowszeOgloszenia ?? new List<Listing>();
 
                 // Debugowanie - sprawdź czy ogłoszenia mają poprawne dane
@@ -58,6 +64,7 @@ namespace OgloszeniaSytem.Controllers
                 
                 // W przypadku błędu ustaw puste kolekcje
                 ViewBag.Kategorie = new List<Category>();
+                ViewBag.Lokalizacje = new List<Location>(); // DODANE
                 ViewBag.NajnowszeOgloszenia = new List<Listing>();
                 ViewBag.ErrorMessage = "Wystąpił błąd podczas ładowania danych. Spróbuj odświeżyć stronę.";
                 

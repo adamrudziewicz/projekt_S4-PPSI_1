@@ -29,10 +29,10 @@ namespace OgloszeniaSytem.Services
             var filePath = Path.Combine(_environment.WebRootPath, "uploads", fileName);
             return File.Exists(filePath);
         }
-        public async Task<PaginatedList<Listing>> GetOgloszeniaAsync(string? kategoria, string? lokalizacja, int page)
+        public async Task<PaginatedList<Listing>> GetOgloszeniaAsync(string? kategoria, string? lokalizacja, string? search, int page)
         {
             const int pageSize = 10;
-            var cacheKey = $"ogloszenia_{kategoria}_{lokalizacja}_{page}";
+            var cacheKey = $"ogloszenia_{kategoria}_{lokalizacja}_{search}_{page}";
 
             if (_cache.TryGetValue(cacheKey, out PaginatedList<Listing>? cachedResult))
             {
@@ -53,6 +53,16 @@ namespace OgloszeniaSytem.Services
             if (!string.IsNullOrEmpty(lokalizacja))
             {
                 query = query.Where(o => o.Lokalizacja.Nazwa == lokalizacja);
+            }
+
+            // NOWA FUNKCJONALNOŚĆ WYSZUKIWANIA
+            if (!string.IsNullOrEmpty(search))
+            {
+                var searchLower = search.ToLower();
+                query = query.Where(o => 
+                    o.Tytul.ToLower().Contains(searchLower) || 
+                    o.Opis.ToLower().Contains(searchLower) ||
+                    o.Kategoria.Nazwa.ToLower().Contains(searchLower));
             }
 
             query = query.OrderByDescending(o => o.DataPublikacji);

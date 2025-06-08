@@ -32,15 +32,21 @@ namespace OgloszeniaSytem.Controllers
         }
 
         // GET: Listing
-        public async Task<IActionResult> Index(string? kategoria, string? lokalizacja, int page = 1)
+        public async Task<IActionResult> Index(string? kategoria, string? lokalizacja, string? search, int page = 1)
         {
-            _logger.LogInformation("Pobieranie listy ogłoszeń dla kategorii: {Kategoria}, lokalizacji: {Lokalizacja}", kategoria, lokalizacja);
-            
-            var ogloszenia = await _listingService.GetOgloszeniaAsync(kategoria, lokalizacja, page);
-            
+            _logger.LogInformation("Pobieranie listy ogłoszeń dla kategorii: {Kategoria}, lokalizacji: {Lokalizacja}, wyszukiwania: {Search}", 
+                kategoria, lokalizacja, search);
+    
+            var ogloszenia = await _listingService.GetOgloszeniaAsync(kategoria, lokalizacja, search, page);
+    
             ViewBag.Kategorie = await _context.Kategorie.ToListAsync();
             ViewBag.Lokalizacje = await _context.Lokalizacje.ToListAsync();
-            
+    
+            // Przekaż aktualne wartości filtrów do widoku
+            ViewBag.CurrentKategoria = kategoria;
+            ViewBag.CurrentLokalizacja = lokalizacja;
+            ViewBag.CurrentSearch = search;
+    
             return View(ogloszenia);
         }
 
