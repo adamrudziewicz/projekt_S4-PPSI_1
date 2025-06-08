@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\adam\\RiderProjects\\OgloszeniaSytem\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\OgloszeniaSytem.bundle.scp.css",
+      "PackagePath": "staticwebassets\\OgloszeniaSytem.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\adam\\RiderProjects\\OgloszeniaSytem\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\adam\\RiderProjects\\OgloszeniaSytem\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\adam\\RiderProjects\\OgloszeniaSytem\\wwwroot\\js\\similar-listings.js",
+      "PackagePath": "staticwebassets\\js\\similar-listings.js"
+    },
+    {
+      "Id": "C:\\Users\\adam\\RiderProjects\\OgloszeniaSytem\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.OgloszeniaSytem.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.OgloszeniaSytem.props",
+      "PackagePath": "build\\OgloszeniaSytem.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.OgloszeniaSytem.props",
+      "PackagePath": "buildMultiTargeting\\OgloszeniaSytem.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.OgloszeniaSytem.props",
+      "PackagePath": "buildTransitive\\OgloszeniaSytem.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

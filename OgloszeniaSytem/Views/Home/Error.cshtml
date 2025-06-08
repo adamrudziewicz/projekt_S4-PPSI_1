@@ -1,0 +1,25 @@
+﻿@model Error
+@{
+    ViewData["Title"] = "Błąd";
+}
+
+<div class="text-center">
+    <h1 class="display-1 text-danger">
+        <i class="fas fa-exclamation-triangle"></i>
+    </h1>
+    <h2 class="display-4">Ups! Coś poszło nie tak</h2>
+    <p class="lead">Wystąpił nieoczekiwany błąd podczas przetwarzania Twojego żądania.</p>
+    
+    @if (Model.ShowRequestId)
+    {
+        <p class="text-muted">
+            <strong>ID żądania:</strong> <code>@Model.RequestId</code>
+        </p>
+    }
+    
+    <div class="mt-4">
+        <a asp-controller="Home" asp-action="Index" class="btn btn-primary">
+            <i class="fas fa-home"></i> Powrót do strony głównej
+        </a>
+    </div>
+</div>

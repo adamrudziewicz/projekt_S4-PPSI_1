@@ -1,0 +1,160 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Rejestracja";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <div class="card shadow-lg border-0" style="border-radius: 16px;">
+                <div class="card-body p-5">
+                    <div class="text-center mb-4">
+                        <h1 class="h3 text-gradient mb-2">
+                            <i class="fas fa-user-plus me-2"></i>@ViewData["Title"]
+                        </h1>
+                        <p class="text-muted">Utwórz nowe konto w serwisie ogłoszeń</p>
+                    </div>
+
+                    <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input asp-for="Input.Imie" class="form-control" placeholder="Imię" autocomplete="given-name" />
+                                    <label asp-for="Input.Imie">
+                                        <i class="fas fa-user me-2"></i>Imię
+                                    </label>
+                                    <span asp-validation-for="Input.Imie" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input asp-for="Input.Nazwisko" class="form-control" placeholder="Nazwisko" autocomplete="family-name" />
+                                    <label asp-for="Input.Nazwisko">
+                                        <i class="fas fa-user me-2"></i>Nazwisko
+                                    </label>
+                                    <span asp-validation-for="Input.Nazwisko" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="nazwa@example.com" />
+                            <label asp-for="Input.Email">
+                                <i class="fas fa-envelope me-2"></i>Email
+                            </label>
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="hasło" type="password" />
+                            <label asp-for="Input.Password">
+                                <i class="fas fa-lock me-2"></i>Hasło
+                            </label>
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                            <div class="form-text">
+                                <small class="text-muted">
+                                    <i class="fas fa-info-circle me-1"></i>
+                                    Hasło musi mieć co najmniej 6 znaków
+                                </small>
+                            </div>
+                        </div>
+
+                        <div class="form-floating mb-4">
+                            <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="potwierdź hasło" type="password" />
+                            <label asp-for="Input.ConfirmPassword">
+                                <i class="fas fa-lock me-2"></i>Potwierdź hasło
+                            </label>
+                            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-grid">
+                            <button id="registerSubmit" type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-user-plus me-2"></i>Zarejestruj się
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="text-center mt-4">
+                        <p class="text-muted">
+                            Masz już konto? 
+                            <a asp-area="Identity" asp-page="/Account/Login" asp-route-returnUrl="@Model.ReturnUrl" class="text-decoration-none fw-bold">
+                                Zaloguj się
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            @if ((Model.ExternalLogins?.Count ?? 0) > 0)
+            {
+                <div class="card mt-4 border-0 shadow">
+                    <div class="card-body text-center py-4">
+                        <div class="position-relative mb-3">
+                            <hr>
+                            <span class="position-absolute top-50 start-50 translate-middle bg-white px-3 text-muted">
+                                lub
+                            </span>
+                        </div>
+                        
+                        <h6 class="text-muted mb-3">Zaloguj się przez:</h6>
+                        
+                        <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                            <div class="d-grid gap-2">
+                                @foreach (var provider in Model.ExternalLogins!)
+                                {
+                                    <button type="submit" class="btn btn-outline-secondary" name="provider" value="@provider.Name" title="Zaloguj się przez @provider.DisplayName">
+                                        @{
+                                            var iconClass = provider.Name.ToLower() switch
+                                            {
+                                                "google" => "fab fa-google",
+                                                "facebook" => "fab fa-facebook-f",
+                                                "microsoft" => "fab fa-microsoft",
+                                                "github" => "fab fa-github",
+                                                _ => "fas fa-sign-in-alt"
+                                            };
+                                        }
+                                        <i class="@iconClass me-2"></i>@provider.DisplayName
+                                    </button>
+                                }
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    
+    <script>
+        // Dodatkowa walidacja po stronie klienta
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('registerForm');
+            const submitBtn = document.getElementById('registerSubmit');
+            
+            // Dodaj spinner podczas submitowania
+            form.addEventListener('submit', function() {
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Tworzenie konta...';
+                submitBtn.disabled = true;
+            });
+            
+            // Walidacja w czasie rzeczywistym
+            const inputs = form.querySelectorAll('input[required]');
+            inputs.forEach(input => {
+                input.addEventListener('blur', function() {
+                    if (this.value.trim() === '') {
+                        this.classList.add('is-invalid');
+                    } else {
+                        this.classList.remove('is-invalid');
+                        this.classList.add('is-valid');
+                    }
+                });
+            });
+        });
+    </script>
+}

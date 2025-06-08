@@ -1,0 +1,139 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Zarządzaj profilem";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+}
+
+<div class="container mt-4 fade-in-up">
+    <!-- Nagłówek z gradientem -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="jumbotron text-white p-4">
+                <h2 class="mb-3">
+                    <i class="fas fa-user-cog me-3"></i>Zarządzaj kontem
+                </h2>
+                <p class="mb-0 opacity-75">Personalizuj swój profil i zarządzaj ustawieniami konta</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row justify-content-center">
+        <!-- Główna zawartość - pełna szerokość -->
+        <div class="col-lg-8 fade-in-up">
+            <!-- Komunikaty statusu -->
+            <partial name="_StatusMessage" for="StatusMessage" />
+            
+            <!-- Karta profilu -->
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">
+                        <i class="fas fa-user-circle me-2"></i>Dane profilu
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <form id="profile-form" method="post">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                        
+                        <!-- Nazwa użytkownika (nieaktywna) -->
+                        <div class="mb-3">
+                            <label asp-for="Username" class="form-label">
+                                <i class="fas fa-at text-gradient me-2"></i>Nazwa użytkownika (Email)
+                            </label>
+                            <input asp-for="Username" class="form-control bg-secondary" disabled />
+                            <div class="form-text text-muted">
+                                <i class="fas fa-info-circle me-1"></i>
+                                Nazwa użytkownika nie może być zmieniona
+                            </div>
+                        </div>
+
+                        <!-- Imię i nazwisko -->
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label asp-for="Input.Imie" class="form-label">
+                                    <i class="fas fa-user text-gradient me-2"></i>Imię
+                                </label>
+                                <input asp-for="Input.Imie" class="form-control" placeholder="Wprowadź swoje imię" />
+                                <span asp-validation-for="Input.Imie" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="Input.Nazwisko" class="form-label">
+                                    <i class="fas fa-user text-gradient me-2"></i>Nazwisko
+                                </label>
+                                <input asp-for="Input.Nazwisko" class="form-control" placeholder="Wprowadź swoje nazwisko" />
+                                <span asp-validation-for="Input.Nazwisko" class="text-danger"></span>
+                            </div>
+                        </div>
+                        
+                        <!-- Numer telefonu -->
+                        <div class="mb-4">
+                            <label asp-for="Input.PhoneNumber" class="form-label">
+                                <i class="fas fa-phone text-gradient me-2"></i>Numer telefonu
+                            </label>
+                            <input asp-for="Input.PhoneNumber" class="form-control" placeholder="np. +48 123 456 789" />
+                            <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                            <div class="form-text text-muted">
+                                <i class="fas fa-shield-alt me-1"></i>
+                                Numer telefonu jest opcjonalny i nie będzie publicznie widoczny
+                            </div>
+                        </div>
+                        
+                        <!-- Przyciski akcji -->
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                            <button id="update-profile-button" type="submit" class="btn btn-primary">
+                                <i class="fas fa-save me-2"></i>Zapisz zmiany
+                            </button>
+                            <a asp-page="./ChangePassword" class="btn btn-outline-primary">
+                                <i class="fas fa-key me-2"></i>Zmień hasło
+                            </a>
+                            <a asp-page="./Email" class="btn btn-outline-secondary">
+                                <i class="fas fa-envelope me-2"></i>Zmień email
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('profile-form');
+            const submitBtn = document.getElementById('update-profile-button');
+            const originalBtnHtml = submitBtn.innerHTML;
+            
+            form.addEventListener('submit', function() {
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Zapisywanie...';
+                submitBtn.disabled = true;
+                submitBtn.classList.add('btn-secondary');
+                submitBtn.classList.remove('btn-primary');
+            });
+            
+            // Przywróć przycisk jeśli wystąpi błąd
+            if (document.querySelector('.alert-danger')) {
+                submitBtn.innerHTML = originalBtnHtml;
+                submitBtn.disabled = false;
+                submitBtn.classList.add('btn-primary');
+                submitBtn.classList.remove('btn-secondary');
+            }
+            
+            // Animacja focus na inputach
+            const inputs = document.querySelectorAll('.form-control');
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.parentElement.classList.add('focused');
+                });
+                
+                input.addEventListener('blur', function() {
+                    if (!this.value) {
+                        this.parentElement.classList.remove('focused');
+                    }
+                });
+            });
+        });
+    </script>
+}

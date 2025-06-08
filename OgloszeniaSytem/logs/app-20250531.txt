@@ -1,0 +1,79 @@
+2025-05-31 22:38:38.583 +02:00 [INF] User profile is available. Using 'C:\Users\adam\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-31 22:38:38.814 +02:00 [INF] Inicjalizacja bazy danych...
+2025-05-31 22:38:39.720 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2025-05-31 22:38:39.727 +02:00 [INF] Wypełnianie danymi startowymi...
+2025-05-31 22:38:39.928 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedName_0='?' (Size = 5)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-05-31 22:38:39.966 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedName_0='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-05-31 22:38:39.978 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 19)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2025-05-31 22:38:40.039 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Kategorie" AS "k")
+2025-05-31 22:38:40.044 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Lokalizacje" AS "l")
+2025-05-31 22:38:40.048 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Ogloszenia" AS "o")
+2025-05-31 22:38:40.051 +02:00 [INF] Inicjalizacja danych zakończona pomyślnie
+2025-05-31 22:38:40.053 +02:00 [INF] Baza danych zainicjalizowana pomyślnie
+2025-05-31 22:38:40.142 +02:00 [INF] Now listening on: http://localhost:5025
+2025-05-31 22:38:40.143 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-31 22:38:40.145 +02:00 [INF] Hosting environment: Development
+2025-05-31 22:38:40.146 +02:00 [INF] Content root path: C:\Users\adam\RiderProjects\OgloszeniaSytem
+2025-05-31 22:38:41.885 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/ - null null
+2025-05-31 22:38:41.894 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-05-31 22:38:41.968 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem)'
+2025-05-31 22:38:41.991 +02:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller OgloszeniaSytem.Controllers.HomeController (OgloszeniaSytem).
+2025-05-31 22:38:42.007 +02:00 [INF] Ładowanie strony głównej...
+2025-05-31 22:38:42.071 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis"
+FROM "Kategorie" AS "k"
+2025-05-31 22:38:42.088 +02:00 [INF] Znaleziono 8 kategorii
+2025-05-31 22:38:42.175 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."AutorId", "t"."Cena", "t"."CzyAktywne", "t"."DataPublikacji", "t"."DataWaznosci", "t"."KategoriaId", "t"."LiczbaWyswietlen", "t"."LokalizacjaId", "t"."Opis", "t"."Tytul", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM (
+    SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul"
+    FROM "Ogloszenia" AS "o"
+    WHERE "o"."CzyAktywne"
+    ORDER BY "o"."DataPublikacji" DESC
+    LIMIT @__p_0
+) AS "t"
+INNER JOIN "Kategorie" AS "k" ON "t"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "t"."LokalizacjaId" = "l"."Id"
+INNER JOIN "AspNetUsers" AS "a" ON "t"."AutorId" = "a"."Id"
+ORDER BY "t"."DataPublikacji" DESC
+2025-05-31 22:38:42.246 +02:00 [INF] Znaleziono 3 ogłoszeń
+2025-05-31 22:38:42.296 +02:00 [INF] Executing ViewResult, running view Index.
+2025-05-31 22:38:42.446 +02:00 [INF] Executed ViewResult - view Index executed in 155.7431ms.
+2025-05-31 22:38:42.450 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem) in 455.6424ms
+2025-05-31 22:38:42.452 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem)'
+2025-05-31 22:38:42.459 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/ - 200 null text/html; charset=utf-8 576.2923ms
+2025-05-31 22:38:42.470 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/css/site.css?v=D9Ep6GK1HEo_FUDKhzeU_MYdduBuT_FozwyGA5vgZzo - null null
+2025-05-31 22:38:42.476 +02:00 [INF] The file /css/site.css was not modified
+2025-05-31 22:38:42.478 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/css/site.css?v=D9Ep6GK1HEo_FUDKhzeU_MYdduBuT_FozwyGA5vgZzo - 304 null text/css 8.3818ms
+2025-05-31 22:38:42.574 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/js/site.js?v=sO9cptcqxQZmBeP4-2bbSC-4lhTK63-YJmAuxRT3OSc - null null
+2025-05-31 22:38:42.578 +02:00 [INF] The file /js/site.js was not modified
+2025-05-31 22:38:42.579 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/js/site.js?v=sO9cptcqxQZmBeP4-2bbSC-4lhTK63-YJmAuxRT3OSc - 304 null text/javascript 5.1388ms
+2025-05-31 22:38:42.692 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/favicon.ico - null null
+2025-05-31 22:38:42.692 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - null null
+2025-05-31 22:38:42.695 +02:00 [INF] The file /favicon.ico was not modified
+2025-05-31 22:38:42.697 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/favicon.ico - 304 null image/x-icon 5.1942ms
+2025-05-31 22:38:42.700 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - 404 0 null 7.5863ms
+2025-05-31 22:38:42.703 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5025/Api/Weather/Warszawa, Response status code: 404
+2025-05-31 22:39:11.481 +02:00 [INF] Application is shutting down...

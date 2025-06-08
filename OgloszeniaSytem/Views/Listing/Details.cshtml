@@ -1,0 +1,399 @@
+@using System.Globalization
+@model OgloszeniaSytem.Models.Listing
+@{
+    ViewData["Title"] = Model.Tytul;
+}
+
+<!-- Dodaj ukryte pole z ID ogłoszenia dla JavaScript -->
+<input type="hidden" id="currentListingId" value="@Model.Id" />
+
+<div class="container-fluid px-3">
+    <div class="row g-4">
+        <div class="col-lg-8">
+            <!-- Główne ogłoszenie -->
+            <div class="card fade-in-up">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-start mb-4">
+                        <div class="flex-grow-1">
+                            <h1 class="card-title text-gradient mb-3">@Model.Tytul</h1>
+                            <div class="mb-3">
+                                <span class="badge bg-primary me-2">
+                                    <i class="@(Model.Kategoria?.Ikona ?? "fas fa-tag")"></i> @(Model.Kategoria?.Nazwa ?? "Brak kategorii")
+                                </span>
+                                <span class="badge bg-secondary">
+                                    <i class="fas fa-map-marker-alt"></i> @(Model.Lokalizacja?.Nazwa ?? "Brak lokalizacji")
+                                </span>
+                            </div>
+                        </div>
+                        @if (Model.Cena.HasValue && Model.Cena.Value > 0)
+                        {
+                            <div class="listing-price">
+                                @Model.Cena.Value.ToString("C", CultureInfo.GetCultureInfo("pl-PL"))
+                            </div>
+                        }
+                    </div>
+
+                    <!-- Galeria zdjęć -->
+                    @if (Model.Zdjecia != null && Model.Zdjecia.Any())
+                    {
+                        <div class="gallery mb-4">
+                            <div class="row g-3">
+                                @foreach (var zdjecie in Model.Zdjecia)
+                                {
+                                    <div class="col-lg-4 col-md-6 col-sm-6">
+                                        <div class="position-relative overflow-hidden" style="border-radius: 16px; height: 200px;">
+                                            <img src="/uploads/@zdjecie.NazwaPliku"
+                                                 alt="@(zdjecie.AltText ?? "Zdjęcie ogłoszenia")"
+                                                 class="img-fluid w-100 h-100"
+                                                 style="object-fit: cover; cursor: pointer; transition: all 0.3s ease;"
+                                                 data-bs-toggle="modal"
+                                                 data-bs-target="#imageModal"
+                                                 data-src="/uploads/@zdjecie.NazwaPliku"
+                                                 onmouseover="this.style.transform='scale(1.05)'"
+                                                 onmouseout="this.style.transform='scale(1)'">
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
+
+                    <!-- Opis -->
+                    <div class="mb-4">
+                        <h4 class="text-primary mb-3">
+                            <i class="fas fa-file-alt me-2"></i>Opis
+                        </h4>
+                        <div class="bg-glass p-4" style="border-radius: 16px; border: 1px solid var(--border-color);">
+                            <div class="text-break">
+                                @Html.Raw((Model.Opis ?? "Brak opisu").Replace("\n", "<br>"))
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Informacje -->
+                    <div class="row g-3 text-muted">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center p-3 bg-glass" style="border-radius: 12px;">
+                                <i class="fas fa-user text-primary me-3"></i>
+                                <div>
+                                    <small class="text-muted d-block">Autor</small>
+                                    <strong class="text-primary">@(Model.Autor?.Imie ?? "") @(Model.Autor?.Nazwisko ?? "")</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center p-3 bg-glass" style="border-radius: 12px;">
+                                <i class="fas fa-calendar text-primary me-3"></i>
+                                <div>
+                                    <small class="text-muted d-block">Opublikowano</small>
+                                    <strong class="text-primary">@Model.DataPublikacji.ToString("dd.MM.yyyy HH:mm")</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center p-3 bg-glass" style="border-radius: 12px;">
+                                <i class="fas fa-eye text-primary me-3"></i>
+                                <div>
+                                    <small class="text-muted d-block">Wyświetleń</small>
+                                    <strong class="text-primary">@Model.LiczbaWyswietlen</strong>
+                                </div>
+                            </div>
+                        </div>
+                        @if (Model.DataWaznosci.HasValue)
+                        {
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center p-3 bg-glass" style="border-radius: 12px;">
+                                    <i class="fas fa-clock text-primary me-3"></i>
+                                    <div>
+                                        <small class="text-muted d-block">Ważne do</small>
+                                        <strong class="text-primary">@Model.DataWaznosci.Value.ToString("dd.MM.yyyy")</strong>
+                                        @{
+                                            var daysLeft = (Model.DataWaznosci.Value - DateTime.Now).Days;
+                                        }
+                                        @if (daysLeft <= 7 && daysLeft > 0)
+                                        {
+                                            <span class="badge bg-warning text-dark ms-2">@daysLeft dni</span>
+                                        }
+                                        else if (daysLeft <= 0)
+                                        {
+                                            <span class="badge bg-danger ms-2">Wygasłe</span>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sekcja odpowiedzi -->
+            <div class="card slide-in-left mt-4">
+                <div class="card-header">
+                    <h4 class="mb-0">
+                        <i class="fas fa-comments me-2"></i>Odpowiedzi (@(Model.Odpowiedzi?.Count ?? 0))
+                    </h4>
+                </div>
+                <div class="card-body">
+                    @if (User.Identity!.IsAuthenticated)
+                    {
+                        <!-- Formularz dodawania odpowiedzi - zgodny z site.js -->
+                        <form id="odpowiedzForm" class="mb-4">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" id="OgloszenieId" value="@Model.Id" />
+                            <div class="mb-3">
+                                <label for="TrescOdpowiedzi" class="form-label">
+                                    <i class="fas fa-pen me-2"></i>Twoja odpowiedź
+                                </label>
+                                <textarea id="TrescOdpowiedzi" class="form-control" rows="4" 
+                                          placeholder="Napisz odpowiedź..." required></textarea>
+                                <div class="form-text">
+                                    <i class="fas fa-info-circle me-1"></i>Zostań w temacie i bądź uprzejmy
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-reply me-2"></i>Dodaj odpowiedź
+                            </button>
+                        </form>
+                    }
+                    else
+                    {
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle me-2"></i>
+                            <a asp-area="Identity" asp-page="/Account/Login" class="alert-link">Zaloguj się</a>, aby dodać odpowiedź.
+                        </div>
+                    }
+
+                    <!-- Lista odpowiedzi -->
+                    <div id="odpowiedziList">
+                        @if (Model.Odpowiedzi != null && Model.Odpowiedzi.Any())
+                        {
+                            @foreach (var odpowiedz in Model.Odpowiedzi.OrderByDescending(o => o.DataOdpowiedzi))
+                            {
+                                <partial name="_ResponsePartial" model="odpowiedz" />
+                            }
+                        }
+                    </div>
+
+                    @if (Model.Odpowiedzi == null || !Model.Odpowiedzi.Any())
+                    {
+                        <div class="text-center py-5">
+                            <i class="fas fa-comment-slash fa-4x text-muted mb-3"></i>
+                            <h5 class="text-muted">Brak odpowiedzi</h5>
+                            <p class="text-muted">Bądź pierwszy, który odpowie na to ogłoszenie!</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+            <!-- Kontakt z autorem -->
+            <div class="card mb-4 fade-in-up">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-user me-2"></i>Kontakt
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3 p-3 bg-glass" style="border-radius: 12px;">
+                        <div class="avatar me-3">
+                            <i class="fas fa-user-circle fa-3x text-primary"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-1 text-primary">@(Model.Autor?.Imie ?? "") @(Model.Autor?.Nazwisko ?? "")</h6>
+                            <small class="text-muted">
+                                <i class="fas fa-calendar-alt me-1"></i>
+                                Członek od: @(Model.Autor?.DataRejestracji.ToString("MM.yyyy") ?? "")
+                            </small>
+                        </div>
+                    </div>
+                    
+                    @if (User.Identity.IsAuthenticated && User.Identity.Name == Model.Autor?.Email)
+                    {
+                        <div class="alert alert-info mb-3">
+                            <i class="fas fa-info-circle me-2"></i>
+                            <small>To jest Twoje ogłoszenie</small>
+                        </div>
+                    }
+                    
+                    <button class="btn btn-outline-secondary w-100" onclick="reportListing()">
+                        <i class="fas fa-flag me-2"></i>Zgłoś ogłoszenie
+                    </button>
+                </div>
+            </div>
+
+            <!-- Widget pogody - zgodny z site.js -->
+            <div class="card mb-4 slide-in-left">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-cloud-sun me-2"></i>Pogoda w @(Model.Lokalizacja?.Nazwa ?? "Warszawa")
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div id="weatherWidget" data-city="@(Model.Lokalizacja?.Nazwa ?? "Warszawa")">
+                        <div class="text-center py-4">
+                            <div class="spinner-border spinner-border-sm text-primary" role="status">
+                                <span class="visually-hidden">Ładowanie...</span>
+                            </div>
+                            <div class="mt-2">
+                                <small class="text-muted">Ładowanie danych pogodowych...</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Podobne ogłoszenia -->
+            <div class="card fade-in-up">
+                <div class="card-header">
+                    <h6 class="mb-0">
+                        <i class="fas fa-lightbulb me-2"></i>Podobne ogłoszenia
+                    </h6>
+                </div>
+                <div class="card-body">
+                    <div id="similarListings">
+                        <div class="text-center py-4">
+                            <div class="spinner-border spinner-border-sm text-primary" role="status">
+                                <span class="visually-hidden">Ładowanie...</span>
+                            </div>
+                            <div class="mt-2">
+                                <small class="text-muted">Szukam podobnych...</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal dla galerii zdjęć -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content" style="border-radius: 16px; border: none; box-shadow: var(--shadow-lg);">
+            <div class="modal-header border-0 pb-0">
+                <h5 class="modal-title text-gradient" id="imageModalLabel">
+                    <i class="fas fa-image me-2"></i>Podgląd zdjęcia
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-0">
+                <img id="modalImage" src="" class="img-fluid w-100" alt="Podgląd zdjęcia" 
+                     style="border-radius: 0 0 16px 16px;">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <!-- Dodaj odwołanie do pliku z podobnymi ogłoszeniami -->
+    <script src="~/js/similar-listings.js"></script>
+
+    <script>
+        // Modal galerii z animacją
+        $('#imageModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            var imageSrc = button.data('src');
+            $('#modalImage').attr('src', imageSrc);
+            
+            // Dodaj animację fade-in
+            $('#modalImage').css('opacity', '0');
+            setTimeout(() => {
+                $('#modalImage').css({
+                    'opacity': '1',
+                    'transition': 'opacity 0.3s ease'
+                });
+            }, 100);
+        });
+
+        // Funkcja zgłoszenia - używa showNotification z site.js
+        function reportListing() {
+            if (confirm('Czy na pewno chcesz zgłosić to ogłoszenie do moderacji?')) {
+                // Tutaj można dodać prawdziwe zgłoszenie
+                showNotification('Ogłoszenie zostało zgłoszone do moderacji', 'success');
+            }
+        }
+
+        // Debug API - tylko w trybie development
+        function debugAPI() {
+            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                const listingId = $('#currentListingId').val();
+                console.log('=== DEBUG API ===');
+                console.log('Listing ID:', listingId);
+                console.log('Test URL:', '/api/Api/test');
+                console.log('Similar URL:', `/api/Api/listing/similar/${listingId}`);
+
+                // Test podstawowego endpointu
+                fetch('/api/Api/test')
+                    .then(response => {
+                        console.log('Test response status:', response.status);
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log('Test API SUCCESS:', data);
+                    })
+                    .catch(error => {
+                        console.error('Test API ERROR:', error);
+                    });
+
+                // Test podobnych ogłoszeń
+                fetch(`/api/Api/listing/similar/${listingId}`)
+                    .then(response => {
+                        console.log('Similar response status:', response.status);
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log('Similar listings SUCCESS:', data);
+                    })
+                    .catch(error => {
+                        console.error('Similar listings ERROR:', error);
+                    });
+            }
+        }
+
+        // Inicjalizacja strony - bez konfliktu z site.js
+        $(document).ready(function() {
+            console.log('Strona szczegółów załadowana');
+            console.log('ID ogłoszenia:', $('#currentListingId').val());
+
+            // Uruchom debug API tylko w development
+            debugAPI();
+
+            // Ładowanie podobnych ogłoszeń z opóźnieniem
+            setTimeout(function() {
+                if (typeof loadSimilarListings === 'function') {
+                    console.log('Uruchamiam loadSimilarListings...');
+                    loadSimilarListings($('#currentListingId').val());
+                } else {
+                    console.error('Funkcja loadSimilarListings nie jest dostępna');
+                }
+            }, 1000);
+
+            // Animacje scroll - tylko jeśli nie ma konfliktu
+            if (typeof IntersectionObserver !== 'undefined') {
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }
+                    });
+                }, observerOptions);
+
+                // Obserwuj tylko elementy, które nie mają już animacji
+                document.querySelectorAll('.card:not(.fade-in-up):not(.slide-in-left)').forEach(card => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = 'all 0.6s ease';
+                    observer.observe(card);
+                });
+            }
+        });
+    </script>
+}

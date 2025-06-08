@@ -1,0 +1,193 @@
+﻿@model EditListingViewModel
+
+@{
+    ViewData["Title"] = "Edytuj ogłoszenie";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <h2><i class="fas fa-edit"></i> @ViewData["Title"]</h2>
+                </div>
+                <div class="card-body">
+                    @if (TempData["ErrorMessage"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            @TempData["ErrorMessage"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    }
+
+                    <form asp-action="Edit" method="post" enctype="multipart/form-data" id="editForm">
+                        <input asp-for="Id" type="hidden" />
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <label asp-for="Tytul" class="form-label">Tytuł ogłoszenia *</label>
+                                <input asp-for="Tytul" class="form-control" placeholder="Wprowadź tytuł ogłoszenia">
+                                <span asp-validation-for="Tytul" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="KategoriaId" class="form-label">Kategoria *</label>
+                                <select asp-for="KategoriaId" class="form-select" asp-items="@(new SelectList(ViewBag.Kategorie, "Id", "Nazwa"))">
+                                    <option value="">Wybierz kategorię</option>
+                                </select>
+                                <span asp-validation-for="KategoriaId" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="LokalizacjaId" class="form-label">Lokalizacja *</label>
+                                <select asp-for="LokalizacjaId" class="form-select" asp-items="@(new SelectList(ViewBag.Lokalizacje, "Id", "Nazwa"))">
+                                    <option value="">Wybierz lokalizację</option>
+                                </select>
+                                <span asp-validation-for="LokalizacjaId" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Cena" class="form-label">Cena (PLN)</label>
+                                <input asp-for="Cena" class="form-control" type="number" step="0.01" min="0" placeholder="0.00">
+                                <span asp-validation-for="Cena" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="DataWaznosci" class="form-label">Data ważności</label>
+                                <input asp-for="DataWaznosci" class="form-control" type="date">
+                                <span asp-validation-for="DataWaznosci" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Opis" class="form-label">Opis *</label>
+                            <textarea asp-for="Opis" class="form-control" rows="6" placeholder="Szczegółowy opis ogłoszenia..."></textarea>
+                            <span asp-validation-for="Opis" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input asp-for="CzyAktywne" class="form-check-input" type="checkbox">
+                                <label asp-for="CzyAktywne" class="form-check-label">
+                                    Ogłoszenie aktywne
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Istniejące zdjęcia -->
+                        @if (Model.IstniejaceZdjecia.Any())
+                        {
+                            <div class="mb-4">
+                                <h5>Istniejące zdjęcia</h5>
+                                <div class="row" id="existing-photos">
+                                    @for (int i = 0; i < Model.IstniejaceZdjecia.Count; i++)
+                                    {
+                                        <div class="col-md-3 mb-3">
+                                            <div class="card">
+                                                <img src="~/uploads/@Model.IstniejaceZdjecia[i].NazwaPliku" 
+                                                     class="card-img-top" 
+                                                     style="height: 150px; object-fit: cover;" 
+                                                     alt="Zdjęcie">
+                                                <div class="card-body p-2">
+                                                    <div class="form-check">
+                                                        <input type="checkbox" 
+                                                               name="ZdjeciaDoUsuniecia" 
+                                                               value="@Model.IstniejaceZdjecia[i].Id" 
+                                                               class="form-check-input delete-photo-checkbox"
+                                                               id="delete_@Model.IstniejaceZdjecia[i].Id">
+                                                        <label class="form-check-label text-danger" for="delete_@Model.IstniejaceZdjecia[i].Id">
+                                                            <small>Usuń</small>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        }
+
+                        <!-- Nowe zdjęcia -->
+                        <div class="mb-4">
+                            <label asp-for="NoweZdjecia" class="form-label">Dodaj nowe zdjęcia</label>
+                            <input asp-for="NoweZdjecia" class="form-control" type="file" multiple accept="image/*" id="NoweZdjeciaInput">
+                            <div class="form-text">Możesz wybrać wiele zdjęć jednocześnie. Maksymalny rozmiar pliku: 5MB</div>
+                            <div class="row mt-3" id="noweZdjeciaPreview"></div>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-secondary me-md-2">
+                                <i class="fas fa-times"></i> Anuluj
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Zapisz zmiany
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    
+    <script>
+        $(document).ready(function() {
+            // Podgląd nowych zdjęć
+            $('#NoweZdjeciaInput').on('change', function() {
+                const files = this.files;
+                const preview = $('#noweZdjeciaPreview');
+                preview.empty();
+                
+                for (let i = 0; i < files.length; i++) {
+                    const file = files[i];
+                    if (file.type.startsWith('image/')) {
+                        if (file.size > 5 * 1024 * 1024) { // 5MB
+                            alert(`Plik ${file.name} jest za duży. Maksymalny rozmiar to 5MB.`);
+                            continue;
+                        }
+                        
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            preview.append(`
+                                <div class="col-md-3 mb-2">
+                                    <img src="${e.target.result}" class="img-thumbnail" style="height: 100px; object-fit: cover;">
+                                </div>
+                            `);
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                }
+            });
+
+            // Oznaczanie zdjęć do usunięcia
+            $('.delete-photo-checkbox').on('change', function() {
+                const card = $(this).closest('.card');
+                if ($(this).is(':checked')) {
+                    card.addClass('opacity-50');
+                    card.find('img').css('filter', 'grayscale(100%)');
+                } else {
+                    card.removeClass('opacity-50');
+                    card.find('img').css('filter', 'none');
+                }
+            });
+
+            // Walidacja formularza
+            $('#editForm').on('submit', function(e) {
+                const tytul = $('#Tytul').val().trim();
+                const opis = $('#Opis').val().trim();
+                
+                if (!tytul || !opis) {
+                    e.preventDefault();
+                    alert('Wypełnij wszystkie wymagane pola (Tytuł i Opis)');
+                    return false;
+                }
+            });
+        });
+    </script>
+}

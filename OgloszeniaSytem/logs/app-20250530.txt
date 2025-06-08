@@ -1,0 +1,998 @@
+2025-05-30 14:41:53.528 +02:00 [INF] User profile is available. Using 'C:\Users\adam\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-05-30 14:41:53.695 +02:00 [INF] Inicjalizacja bazy danych...
+2025-05-30 14:41:54.311 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2025-05-30 14:41:54.316 +02:00 [INF] Wypełnianie danymi startowymi...
+2025-05-30 14:41:54.463 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedName_0='?' (Size = 5)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-05-30 14:41:54.496 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedName_0='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-05-30 14:41:54.506 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 19)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2025-05-30 14:41:54.562 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Kategorie" AS "k")
+2025-05-30 14:41:54.565 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Lokalizacje" AS "l")
+2025-05-30 14:41:54.569 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "Ogloszenia" AS "o")
+2025-05-30 14:41:54.570 +02:00 [INF] Inicjalizacja danych zakończona pomyślnie
+2025-05-30 14:41:54.572 +02:00 [INF] Baza danych zainicjalizowana pomyślnie
+2025-05-30 14:41:54.644 +02:00 [INF] Now listening on: http://localhost:5025
+2025-05-30 14:41:54.645 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-05-30 14:41:54.646 +02:00 [INF] Hosting environment: Development
+2025-05-30 14:41:54.647 +02:00 [INF] Content root path: C:\Users\adam\RiderProjects\OgloszeniaSytem
+2025-05-30 14:41:57.579 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/ - null null
+2025-05-30 14:41:57.583 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-05-30 14:41:57.616 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem)'
+2025-05-30 14:41:57.628 +02:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller OgloszeniaSytem.Controllers.HomeController (OgloszeniaSytem).
+2025-05-30 14:41:57.638 +02:00 [INF] Ładowanie strony głównej...
+2025-05-30 14:41:57.680 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis"
+FROM "Kategorie" AS "k"
+2025-05-30 14:41:57.692 +02:00 [INF] Znaleziono 8 kategorii
+2025-05-30 14:41:57.743 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."AutorId", "t"."Cena", "t"."CzyAktywne", "t"."DataPublikacji", "t"."DataWaznosci", "t"."KategoriaId", "t"."LiczbaWyswietlen", "t"."LokalizacjaId", "t"."Opis", "t"."Tytul", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM (
+    SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul"
+    FROM "Ogloszenia" AS "o"
+    WHERE "o"."CzyAktywne"
+    ORDER BY "o"."DataPublikacji" DESC
+    LIMIT @__p_0
+) AS "t"
+INNER JOIN "Kategorie" AS "k" ON "t"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "t"."LokalizacjaId" = "l"."Id"
+INNER JOIN "AspNetUsers" AS "a" ON "t"."AutorId" = "a"."Id"
+ORDER BY "t"."DataPublikacji" DESC
+2025-05-30 14:41:57.786 +02:00 [INF] Znaleziono 6 ogłoszeń
+2025-05-30 14:41:57.813 +02:00 [INF] Executing ViewResult, running view Index.
+2025-05-30 14:41:57.945 +02:00 [INF] Executed ViewResult - view Index executed in 132.4506ms.
+2025-05-30 14:41:57.949 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem) in 319.4513ms
+2025-05-30 14:41:57.951 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem)'
+2025-05-30 14:41:57.957 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/ - 200 null text/html; charset=utf-8 378.6075ms
+2025-05-30 14:41:57.968 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/css/site.css?v=D9Ep6GK1HEo_FUDKhzeU_MYdduBuT_FozwyGA5vgZzo - null null
+2025-05-30 14:41:57.974 +02:00 [INF] The file /css/site.css was not modified
+2025-05-30 14:41:57.976 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/css/site.css?v=D9Ep6GK1HEo_FUDKhzeU_MYdduBuT_FozwyGA5vgZzo - 304 null text/css 7.8509ms
+2025-05-30 14:41:58.052 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/js/site.js?v=sO9cptcqxQZmBeP4-2bbSC-4lhTK63-YJmAuxRT3OSc - null null
+2025-05-30 14:41:58.061 +02:00 [INF] The file /js/site.js was not modified
+2025-05-30 14:41:58.064 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/js/site.js?v=sO9cptcqxQZmBeP4-2bbSC-4lhTK63-YJmAuxRT3OSc - 304 null text/javascript 11.5257ms
+2025-05-30 14:41:58.174 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - null null
+2025-05-30 14:41:58.183 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - 404 0 null 8.266ms
+2025-05-30 14:41:58.188 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5025/Api/Weather/Warszawa, Response status code: 404
+2025-05-30 14:42:04.256 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Identity/Account/Register - null null
+2025-05-30 14:42:04.262 +02:00 [INF] Executing endpoint '/Account/Register'
+2025-05-30 14:42:04.279 +02:00 [INF] Route matched with {page = "/Account/Register", area = "Identity", action = "", controller = ""}. Executing page /Account/Register
+2025-05-30 14:42:04.294 +02:00 [INF] Executing handler method OgloszeniaSytem.Areas.Identity.Pages.Account.RegisterModel.OnGetAsync - ModelState is "Valid"
+2025-05-30 14:42:04.296 +02:00 [INF] Executed handler method OnGetAsync, returned result .
+2025-05-30 14:42:04.299 +02:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2025-05-30 14:42:04.300 +02:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-05-30 14:42:04.331 +02:00 [INF] Executed page /Account/Register in 51.5764ms
+2025-05-30 14:42:04.333 +02:00 [INF] Executed endpoint '/Account/Register'
+2025-05-30 14:42:04.334 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Identity/Account/Register - 200 null text/html; charset=utf-8 78.4105ms
+2025-05-30 14:42:04.369 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - null null
+2025-05-30 14:42:04.372 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - 404 0 null 3.3579ms
+2025-05-30 14:42:04.375 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5025/Api/Weather/Warszawa, Response status code: 404
+2025-05-30 14:42:05.326 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Identity/Account/Login - null null
+2025-05-30 14:42:05.331 +02:00 [INF] Executing endpoint '/Account/Login'
+2025-05-30 14:42:05.336 +02:00 [INF] Route matched with {page = "/Account/Login", area = "Identity", action = "", controller = ""}. Executing page /Account/Login
+2025-05-30 14:42:05.340 +02:00 [INF] Executing handler method OgloszeniaSytem.Areas.Identity.Pages.Account.LoginModel.OnGetAsync - ModelState is "Valid"
+2025-05-30 14:42:05.343 +02:00 [INF] AuthenticationScheme: Identity.External signed out.
+2025-05-30 14:42:05.344 +02:00 [INF] Executed handler method OnGetAsync, returned result .
+2025-05-30 14:42:05.345 +02:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2025-05-30 14:42:05.346 +02:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-05-30 14:42:05.360 +02:00 [INF] Executed page /Account/Login in 22.7885ms
+2025-05-30 14:42:05.361 +02:00 [INF] Executed endpoint '/Account/Login'
+2025-05-30 14:42:05.362 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Identity/Account/Login - 200 null text/html; charset=utf-8 35.6586ms
+2025-05-30 14:42:05.388 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - null null
+2025-05-30 14:42:05.390 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - 404 0 null 2.3054ms
+2025-05-30 14:42:05.393 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5025/Api/Weather/Warszawa, Response status code: 404
+2025-05-30 14:42:07.064 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5025/Identity/Account/Login - application/x-www-form-urlencoded 266
+2025-05-30 14:42:07.066 +02:00 [INF] Executing endpoint '/Account/Login'
+2025-05-30 14:42:07.068 +02:00 [INF] Route matched with {page = "/Account/Login", area = "Identity", action = "", controller = ""}. Executing page /Account/Login
+2025-05-30 14:42:07.080 +02:00 [INF] Executing handler method OgloszeniaSytem.Areas.Identity.Pages.Account.LoginModel.OnPostAsync - ModelState is "Valid"
+2025-05-30 14:42:07.087 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedUserName_0='?' (Size = 19)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2025-05-30 14:42:07.157 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ClaimType", "a"."ClaimValue", "a"."UserId"
+FROM "AspNetUserClaims" AS "a"
+WHERE "a"."UserId" = @__user_Id_0
+2025-05-30 14:42:07.167 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2025-05-30 14:42:07.169 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedName_0='?' (Size = 5)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2025-05-30 14:42:07.175 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__role_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."ClaimType", "a"."ClaimValue"
+FROM "AspNetRoleClaims" AS "a"
+WHERE "a"."RoleId" = @__role_Id_0
+2025-05-30 14:42:07.178 +02:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2025-05-30 14:42:07.179 +02:00 [INF] User logged in.
+2025-05-30 14:42:07.180 +02:00 [INF] Executed handler method OnPostAsync, returned result Microsoft.AspNetCore.Mvc.LocalRedirectResult.
+2025-05-30 14:42:07.181 +02:00 [INF] Executing LocalRedirectResult, redirecting to /.
+2025-05-30 14:42:07.182 +02:00 [INF] Executed page /Account/Login in 113.7016ms
+2025-05-30 14:42:07.183 +02:00 [INF] Executed endpoint '/Account/Login'
+2025-05-30 14:42:07.185 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5025/Identity/Account/Login - 302 0 null 121.007ms
+2025-05-30 14:42:07.187 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/ - null null
+2025-05-30 14:42:07.191 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem)'
+2025-05-30 14:42:07.192 +02:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller OgloszeniaSytem.Controllers.HomeController (OgloszeniaSytem).
+2025-05-30 14:42:07.194 +02:00 [INF] Ładowanie strony głównej...
+2025-05-30 14:42:07.195 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis"
+FROM "Kategorie" AS "k"
+2025-05-30 14:42:07.198 +02:00 [INF] Znaleziono 8 kategorii
+2025-05-30 14:42:07.199 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."AutorId", "t"."Cena", "t"."CzyAktywne", "t"."DataPublikacji", "t"."DataWaznosci", "t"."KategoriaId", "t"."LiczbaWyswietlen", "t"."LokalizacjaId", "t"."Opis", "t"."Tytul", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM (
+    SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul"
+    FROM "Ogloszenia" AS "o"
+    WHERE "o"."CzyAktywne"
+    ORDER BY "o"."DataPublikacji" DESC
+    LIMIT @__p_0
+) AS "t"
+INNER JOIN "Kategorie" AS "k" ON "t"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "t"."LokalizacjaId" = "l"."Id"
+INNER JOIN "AspNetUsers" AS "a" ON "t"."AutorId" = "a"."Id"
+ORDER BY "t"."DataPublikacji" DESC
+2025-05-30 14:42:07.202 +02:00 [INF] Znaleziono 6 ogłoszeń
+2025-05-30 14:42:07.204 +02:00 [INF] Executing ViewResult, running view Index.
+2025-05-30 14:42:07.207 +02:00 [INF] Executed ViewResult - view Index executed in 3.8092ms.
+2025-05-30 14:42:07.209 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem) in 14.8602ms
+2025-05-30 14:42:07.210 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem)'
+2025-05-30 14:42:07.211 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/ - 200 null text/html; charset=utf-8 23.5646ms
+2025-05-30 14:42:07.245 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - null null
+2025-05-30 14:42:07.250 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - 404 0 null 4.3901ms
+2025-05-30 14:42:07.253 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5025/Api/Weather/Warszawa, Response status code: 404
+2025-05-30 14:42:23.120 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia - null null
+2025-05-30 14:42:23.128 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:42:23.132 +02:00 [INF] Route matched with {action = "MyOgloszenia", controller = "Ogloszenia", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MyOgloszenia() on controller OgloszeniaSytem.Controllers.OgloszeniaController (OgloszeniaSytem).
+2025-05-30 14:42:23.148 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-05-30 14:42:23.177 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo", "z"."Id", "z"."AltText", "z"."DataDodania", "z"."NazwaPliku", "z"."OgloszenieId", "z"."RozmiarPliku"
+FROM "Ogloszenia" AS "o"
+INNER JOIN "Kategorie" AS "k" ON "o"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "o"."LokalizacjaId" = "l"."Id"
+LEFT JOIN "Zdjecia" AS "z" ON "o"."Id" = "z"."OgloszenieId"
+WHERE "o"."AutorId" = @__user_Id_0
+ORDER BY "o"."DataPublikacji" DESC, "o"."Id", "k"."Id", "l"."Id"
+2025-05-30 14:42:23.196 +02:00 [INF] Executing ViewResult, running view MyOgloszenia.
+2025-05-30 14:42:23.205 +02:00 [INF] Executed ViewResult - view MyOgloszenia executed in 10.0673ms.
+2025-05-30 14:42:23.207 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem) in 72.8412ms
+2025-05-30 14:42:23.208 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:42:23.209 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia - 200 null text/html; charset=utf-8 88.7498ms
+2025-05-30 14:42:23.248 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - null null
+2025-05-30 14:42:23.252 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - 404 0 null 3.8606ms
+2025-05-30 14:42:23.255 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5025/Api/Weather/Warszawa, Response status code: 404
+2025-05-30 14:42:27.320 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Ogloszenia/Delete/7 - null null
+2025-05-30 14:42:27.326 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.Delete (OgloszeniaSytem)'
+2025-05-30 14:42:27.330 +02:00 [INF] Route matched with {action = "Delete", controller = "Ogloszenia", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Delete(System.Nullable`1[System.Int32]) on controller OgloszeniaSytem.Controllers.OgloszeniaController (OgloszeniaSytem).
+2025-05-30 14:42:27.343 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo"
+FROM "Ogloszenia" AS "o"
+INNER JOIN "AspNetUsers" AS "a" ON "o"."AutorId" = "a"."Id"
+INNER JOIN "Kategorie" AS "k" ON "o"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "o"."LokalizacjaId" = "l"."Id"
+WHERE "o"."Id" = @__id_0
+LIMIT 1
+2025-05-30 14:42:27.347 +02:00 [INF] Executing ViewResult, running view Delete.
+2025-05-30 14:42:27.361 +02:00 [INF] Executed ViewResult - view Delete executed in 14.7714ms.
+2025-05-30 14:42:27.363 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.OgloszeniaController.Delete (OgloszeniaSytem) in 30.814ms
+2025-05-30 14:42:27.364 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.Delete (OgloszeniaSytem)'
+2025-05-30 14:42:27.365 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Ogloszenia/Delete/7 - 200 null text/html; charset=utf-8 45.3823ms
+2025-05-30 14:42:27.412 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - null null
+2025-05-30 14:42:27.415 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - 404 0 null 3.796ms
+2025-05-30 14:42:27.420 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5025/Api/Weather/Warszawa, Response status code: 404
+2025-05-30 14:42:31.270 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5025/Ogloszenia/Delete/7 - application/x-www-form-urlencoded 230
+2025-05-30 14:42:31.275 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.DeleteConfirmed (OgloszeniaSytem)'
+2025-05-30 14:42:31.279 +02:00 [INF] Route matched with {action = "Delete", controller = "Ogloszenia", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteConfirmed(Int32) on controller OgloszeniaSytem.Controllers.OgloszeniaController (OgloszeniaSytem).
+2025-05-30 14:42:31.291 +02:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2025-05-30 14:42:31.296 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."AutorId", "t"."Cena", "t"."CzyAktywne", "t"."DataPublikacji", "t"."DataWaznosci", "t"."KategoriaId", "t"."LiczbaWyswietlen", "t"."LokalizacjaId", "t"."Opis", "t"."Tytul", "z"."Id", "z"."AltText", "z"."DataDodania", "z"."NazwaPliku", "z"."OgloszenieId", "z"."RozmiarPliku", "o0"."Id", "o0"."AutorId", "o0"."DataOdpowiedzi", "o0"."OgloszenieId", "o0"."Tresc"
+FROM (
+    SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul"
+    FROM "Ogloszenia" AS "o"
+    WHERE "o"."Id" = @__id_0
+    LIMIT 1
+) AS "t"
+LEFT JOIN "Zdjecia" AS "z" ON "t"."Id" = "z"."OgloszenieId"
+LEFT JOIN "Odpowiedzi" AS "o0" ON "t"."Id" = "o0"."OgloszenieId"
+ORDER BY "t"."Id", "z"."Id"
+2025-05-30 14:42:31.299 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-05-30 14:42:31.408 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "Zdjecia"
+WHERE "Id" = @p0
+RETURNING 1;
+2025-05-30 14:42:31.413 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "Zdjecia"
+WHERE "Id" = @p0
+RETURNING 1;
+2025-05-30 14:42:31.415 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "Zdjecia"
+WHERE "Id" = @p0
+RETURNING 1;
+2025-05-30 14:42:31.416 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "Zdjecia"
+WHERE "Id" = @p0
+RETURNING 1;
+2025-05-30 14:42:31.419 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "Ogloszenia"
+WHERE "Id" = @p0
+RETURNING 1;
+2025-05-30 14:42:31.436 +02:00 [INF] Usunięto ogłoszenie: 7 przez użytkownika: c383efb3-2346-4343-b015-ddeeff3d8fbe
+2025-05-30 14:42:31.437 +02:00 [INF] Executing RedirectResult, redirecting to /Ogloszenia/MyOgloszenia.
+2025-05-30 14:42:31.439 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.OgloszeniaController.DeleteConfirmed (OgloszeniaSytem) in 158.843ms
+2025-05-30 14:42:31.440 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.DeleteConfirmed (OgloszeniaSytem)'
+2025-05-30 14:42:31.441 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5025/Ogloszenia/Delete/7 - 302 0 null 170.2305ms
+2025-05-30 14:42:31.443 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia - null null
+2025-05-30 14:42:31.446 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:42:31.447 +02:00 [INF] Route matched with {action = "MyOgloszenia", controller = "Ogloszenia", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MyOgloszenia() on controller OgloszeniaSytem.Controllers.OgloszeniaController (OgloszeniaSytem).
+2025-05-30 14:42:31.449 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-05-30 14:42:31.452 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo", "z"."Id", "z"."AltText", "z"."DataDodania", "z"."NazwaPliku", "z"."OgloszenieId", "z"."RozmiarPliku"
+FROM "Ogloszenia" AS "o"
+INNER JOIN "Kategorie" AS "k" ON "o"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "o"."LokalizacjaId" = "l"."Id"
+LEFT JOIN "Zdjecia" AS "z" ON "o"."Id" = "z"."OgloszenieId"
+WHERE "o"."AutorId" = @__user_Id_0
+ORDER BY "o"."DataPublikacji" DESC, "o"."Id", "k"."Id", "l"."Id"
+2025-05-30 14:42:31.454 +02:00 [INF] Executing ViewResult, running view MyOgloszenia.
+2025-05-30 14:42:31.457 +02:00 [INF] Executed ViewResult - view MyOgloszenia executed in 2.856ms.
+2025-05-30 14:42:31.459 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem) in 10.0455ms
+2025-05-30 14:42:31.460 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:42:31.461 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia - 200 null text/html; charset=utf-8 18.3801ms
+2025-05-30 14:42:31.504 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - null null
+2025-05-30 14:42:31.507 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - 404 0 null 3.0933ms
+2025-05-30 14:42:31.509 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5025/Api/Weather/Warszawa, Response status code: 404
+2025-05-30 14:42:34.839 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia - null null
+2025-05-30 14:42:34.843 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:42:34.843 +02:00 [INF] Route matched with {action = "MyOgloszenia", controller = "Ogloszenia", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MyOgloszenia() on controller OgloszeniaSytem.Controllers.OgloszeniaController (OgloszeniaSytem).
+2025-05-30 14:42:34.846 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-05-30 14:42:34.849 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo", "z"."Id", "z"."AltText", "z"."DataDodania", "z"."NazwaPliku", "z"."OgloszenieId", "z"."RozmiarPliku"
+FROM "Ogloszenia" AS "o"
+INNER JOIN "Kategorie" AS "k" ON "o"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "o"."LokalizacjaId" = "l"."Id"
+LEFT JOIN "Zdjecia" AS "z" ON "o"."Id" = "z"."OgloszenieId"
+WHERE "o"."AutorId" = @__user_Id_0
+ORDER BY "o"."DataPublikacji" DESC, "o"."Id", "k"."Id", "l"."Id"
+2025-05-30 14:42:34.851 +02:00 [INF] Executing ViewResult, running view MyOgloszenia.
+2025-05-30 14:42:34.854 +02:00 [INF] Executed ViewResult - view MyOgloszenia executed in 2.3736ms.
+2025-05-30 14:42:34.856 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem) in 10.8416ms
+2025-05-30 14:42:34.857 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:42:34.858 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia - 200 null text/html; charset=utf-8 18.7629ms
+2025-05-30 14:42:34.879 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - null null
+2025-05-30 14:42:34.882 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/favicon.ico - null null
+2025-05-30 14:42:34.882 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - 404 0 null 2.8ms
+2025-05-30 14:42:34.884 +02:00 [INF] The file /favicon.ico was not modified
+2025-05-30 14:42:34.886 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5025/Api/Weather/Warszawa, Response status code: 404
+2025-05-30 14:42:34.887 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/favicon.ico - 304 null image/x-icon 4.9866ms
+2025-05-30 14:42:36.305 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia - null null
+2025-05-30 14:42:36.308 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:42:36.308 +02:00 [INF] Route matched with {action = "MyOgloszenia", controller = "Ogloszenia", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MyOgloszenia() on controller OgloszeniaSytem.Controllers.OgloszeniaController (OgloszeniaSytem).
+2025-05-30 14:42:36.311 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-05-30 14:42:36.314 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo", "z"."Id", "z"."AltText", "z"."DataDodania", "z"."NazwaPliku", "z"."OgloszenieId", "z"."RozmiarPliku"
+FROM "Ogloszenia" AS "o"
+INNER JOIN "Kategorie" AS "k" ON "o"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "o"."LokalizacjaId" = "l"."Id"
+LEFT JOIN "Zdjecia" AS "z" ON "o"."Id" = "z"."OgloszenieId"
+WHERE "o"."AutorId" = @__user_Id_0
+ORDER BY "o"."DataPublikacji" DESC, "o"."Id", "k"."Id", "l"."Id"
+2025-05-30 14:42:36.316 +02:00 [INF] Executing ViewResult, running view MyOgloszenia.
+2025-05-30 14:42:36.318 +02:00 [INF] Executed ViewResult - view MyOgloszenia executed in 2.3334ms.
+2025-05-30 14:42:36.320 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem) in 9.79ms
+2025-05-30 14:42:36.321 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:42:36.322 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia - 200 null text/html; charset=utf-8 17.1435ms
+2025-05-30 14:42:36.349 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - null null
+2025-05-30 14:42:36.351 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - 404 0 null 2.6639ms
+2025-05-30 14:42:36.354 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5025/Api/Weather/Warszawa, Response status code: 404
+2025-05-30 14:42:36.527 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia - null null
+2025-05-30 14:42:36.530 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:42:36.530 +02:00 [INF] Route matched with {action = "MyOgloszenia", controller = "Ogloszenia", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MyOgloszenia() on controller OgloszeniaSytem.Controllers.OgloszeniaController (OgloszeniaSytem).
+2025-05-30 14:42:36.533 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-05-30 14:42:36.535 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo", "z"."Id", "z"."AltText", "z"."DataDodania", "z"."NazwaPliku", "z"."OgloszenieId", "z"."RozmiarPliku"
+FROM "Ogloszenia" AS "o"
+INNER JOIN "Kategorie" AS "k" ON "o"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "o"."LokalizacjaId" = "l"."Id"
+LEFT JOIN "Zdjecia" AS "z" ON "o"."Id" = "z"."OgloszenieId"
+WHERE "o"."AutorId" = @__user_Id_0
+ORDER BY "o"."DataPublikacji" DESC, "o"."Id", "k"."Id", "l"."Id"
+2025-05-30 14:42:36.538 +02:00 [INF] Executing ViewResult, running view MyOgloszenia.
+2025-05-30 14:42:36.540 +02:00 [INF] Executed ViewResult - view MyOgloszenia executed in 2.3699ms.
+2025-05-30 14:42:36.541 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem) in 9.1011ms
+2025-05-30 14:42:36.542 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:42:36.544 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia - 200 null text/html; charset=utf-8 16.8285ms
+2025-05-30 14:42:36.569 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - null null
+2025-05-30 14:42:36.572 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - 404 0 null 3.0311ms
+2025-05-30 14:42:36.575 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5025/Api/Weather/Warszawa, Response status code: 404
+2025-05-30 14:42:36.707 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia - null null
+2025-05-30 14:42:36.709 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:42:36.710 +02:00 [INF] Route matched with {action = "MyOgloszenia", controller = "Ogloszenia", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MyOgloszenia() on controller OgloszeniaSytem.Controllers.OgloszeniaController (OgloszeniaSytem).
+2025-05-30 14:42:36.713 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-05-30 14:42:36.716 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo", "z"."Id", "z"."AltText", "z"."DataDodania", "z"."NazwaPliku", "z"."OgloszenieId", "z"."RozmiarPliku"
+FROM "Ogloszenia" AS "o"
+INNER JOIN "Kategorie" AS "k" ON "o"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "o"."LokalizacjaId" = "l"."Id"
+LEFT JOIN "Zdjecia" AS "z" ON "o"."Id" = "z"."OgloszenieId"
+WHERE "o"."AutorId" = @__user_Id_0
+ORDER BY "o"."DataPublikacji" DESC, "o"."Id", "k"."Id", "l"."Id"
+2025-05-30 14:42:36.718 +02:00 [INF] Executing ViewResult, running view MyOgloszenia.
+2025-05-30 14:42:36.720 +02:00 [INF] Executed ViewResult - view MyOgloszenia executed in 2.0562ms.
+2025-05-30 14:42:36.722 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem) in 9.5713ms
+2025-05-30 14:42:36.723 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:42:36.724 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia - 200 null text/html; charset=utf-8 17.1491ms
+2025-05-30 14:42:36.752 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - null null
+2025-05-30 14:42:36.754 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - 404 0 null 2.5044ms
+2025-05-30 14:42:36.756 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5025/Api/Weather/Warszawa, Response status code: 404
+2025-05-30 14:42:36.888 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia - null null
+2025-05-30 14:42:36.891 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:42:36.893 +02:00 [INF] Route matched with {action = "MyOgloszenia", controller = "Ogloszenia", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MyOgloszenia() on controller OgloszeniaSytem.Controllers.OgloszeniaController (OgloszeniaSytem).
+2025-05-30 14:42:36.895 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-05-30 14:42:36.898 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo", "z"."Id", "z"."AltText", "z"."DataDodania", "z"."NazwaPliku", "z"."OgloszenieId", "z"."RozmiarPliku"
+FROM "Ogloszenia" AS "o"
+INNER JOIN "Kategorie" AS "k" ON "o"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "o"."LokalizacjaId" = "l"."Id"
+LEFT JOIN "Zdjecia" AS "z" ON "o"."Id" = "z"."OgloszenieId"
+WHERE "o"."AutorId" = @__user_Id_0
+ORDER BY "o"."DataPublikacji" DESC, "o"."Id", "k"."Id", "l"."Id"
+2025-05-30 14:42:36.900 +02:00 [INF] Executing ViewResult, running view MyOgloszenia.
+2025-05-30 14:42:36.903 +02:00 [INF] Executed ViewResult - view MyOgloszenia executed in 2.4164ms.
+2025-05-30 14:42:36.904 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem) in 9.6606ms
+2025-05-30 14:42:36.905 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:42:36.906 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia - 200 null text/html; charset=utf-8 17.8522ms
+2025-05-30 14:42:36.932 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - null null
+2025-05-30 14:42:36.935 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - 404 0 null 3.101ms
+2025-05-30 14:42:36.937 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5025/Api/Weather/Warszawa, Response status code: 404
+2025-05-30 14:42:37.048 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia - null null
+2025-05-30 14:42:37.051 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:42:37.052 +02:00 [INF] Route matched with {action = "MyOgloszenia", controller = "Ogloszenia", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MyOgloszenia() on controller OgloszeniaSytem.Controllers.OgloszeniaController (OgloszeniaSytem).
+2025-05-30 14:42:37.055 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-05-30 14:42:37.058 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo", "z"."Id", "z"."AltText", "z"."DataDodania", "z"."NazwaPliku", "z"."OgloszenieId", "z"."RozmiarPliku"
+FROM "Ogloszenia" AS "o"
+INNER JOIN "Kategorie" AS "k" ON "o"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "o"."LokalizacjaId" = "l"."Id"
+LEFT JOIN "Zdjecia" AS "z" ON "o"."Id" = "z"."OgloszenieId"
+WHERE "o"."AutorId" = @__user_Id_0
+ORDER BY "o"."DataPublikacji" DESC, "o"."Id", "k"."Id", "l"."Id"
+2025-05-30 14:42:37.061 +02:00 [INF] Executing ViewResult, running view MyOgloszenia.
+2025-05-30 14:42:37.063 +02:00 [INF] Executed ViewResult - view MyOgloszenia executed in 2.314ms.
+2025-05-30 14:42:37.065 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem) in 11.097ms
+2025-05-30 14:42:37.066 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:42:37.067 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia - 200 null text/html; charset=utf-8 18.6189ms
+2025-05-30 14:42:37.094 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - null null
+2025-05-30 14:42:37.097 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - 404 0 null 2.4994ms
+2025-05-30 14:42:37.099 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5025/Api/Weather/Warszawa, Response status code: 404
+2025-05-30 14:42:37.298 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia - null null
+2025-05-30 14:42:37.301 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:42:37.302 +02:00 [INF] Route matched with {action = "MyOgloszenia", controller = "Ogloszenia", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MyOgloszenia() on controller OgloszeniaSytem.Controllers.OgloszeniaController (OgloszeniaSytem).
+2025-05-30 14:42:37.305 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-05-30 14:42:37.308 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo", "z"."Id", "z"."AltText", "z"."DataDodania", "z"."NazwaPliku", "z"."OgloszenieId", "z"."RozmiarPliku"
+FROM "Ogloszenia" AS "o"
+INNER JOIN "Kategorie" AS "k" ON "o"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "o"."LokalizacjaId" = "l"."Id"
+LEFT JOIN "Zdjecia" AS "z" ON "o"."Id" = "z"."OgloszenieId"
+WHERE "o"."AutorId" = @__user_Id_0
+ORDER BY "o"."DataPublikacji" DESC, "o"."Id", "k"."Id", "l"."Id"
+2025-05-30 14:42:37.310 +02:00 [INF] Executing ViewResult, running view MyOgloszenia.
+2025-05-30 14:42:37.312 +02:00 [INF] Executed ViewResult - view MyOgloszenia executed in 1.7801ms.
+2025-05-30 14:42:37.313 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem) in 8.8879ms
+2025-05-30 14:42:37.314 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:42:37.315 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia - 200 null text/html; charset=utf-8 16.6504ms
+2025-05-30 14:42:37.339 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - null null
+2025-05-30 14:42:37.342 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - 404 0 null 2.5408ms
+2025-05-30 14:42:37.344 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5025/Api/Weather/Warszawa, Response status code: 404
+2025-05-30 14:42:37.494 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia - null null
+2025-05-30 14:42:37.497 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:42:37.498 +02:00 [INF] Route matched with {action = "MyOgloszenia", controller = "Ogloszenia", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MyOgloszenia() on controller OgloszeniaSytem.Controllers.OgloszeniaController (OgloszeniaSytem).
+2025-05-30 14:42:37.500 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-05-30 14:42:37.503 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo", "z"."Id", "z"."AltText", "z"."DataDodania", "z"."NazwaPliku", "z"."OgloszenieId", "z"."RozmiarPliku"
+FROM "Ogloszenia" AS "o"
+INNER JOIN "Kategorie" AS "k" ON "o"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "o"."LokalizacjaId" = "l"."Id"
+LEFT JOIN "Zdjecia" AS "z" ON "o"."Id" = "z"."OgloszenieId"
+WHERE "o"."AutorId" = @__user_Id_0
+ORDER BY "o"."DataPublikacji" DESC, "o"."Id", "k"."Id", "l"."Id"
+2025-05-30 14:42:37.505 +02:00 [INF] Executing ViewResult, running view MyOgloszenia.
+2025-05-30 14:42:37.507 +02:00 [INF] Executed ViewResult - view MyOgloszenia executed in 2.1015ms.
+2025-05-30 14:42:37.508 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem) in 8.7861ms
+2025-05-30 14:42:37.509 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:42:37.511 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia - 200 null text/html; charset=utf-8 16.3798ms
+2025-05-30 14:42:37.534 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - null null
+2025-05-30 14:42:37.537 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - 404 0 null 2.5851ms
+2025-05-30 14:42:37.539 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5025/Api/Weather/Warszawa, Response status code: 404
+2025-05-30 14:42:39.470 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Ogloszenia/Delete/6 - null null
+2025-05-30 14:42:39.473 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.Delete (OgloszeniaSytem)'
+2025-05-30 14:42:39.474 +02:00 [INF] Route matched with {action = "Delete", controller = "Ogloszenia", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Delete(System.Nullable`1[System.Int32]) on controller OgloszeniaSytem.Controllers.OgloszeniaController (OgloszeniaSytem).
+2025-05-30 14:42:39.476 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo"
+FROM "Ogloszenia" AS "o"
+INNER JOIN "AspNetUsers" AS "a" ON "o"."AutorId" = "a"."Id"
+INNER JOIN "Kategorie" AS "k" ON "o"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "o"."LokalizacjaId" = "l"."Id"
+WHERE "o"."Id" = @__id_0
+LIMIT 1
+2025-05-30 14:42:39.479 +02:00 [INF] Executing ViewResult, running view Delete.
+2025-05-30 14:42:39.481 +02:00 [INF] Executed ViewResult - view Delete executed in 2.3053ms.
+2025-05-30 14:42:39.482 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.OgloszeniaController.Delete (OgloszeniaSytem) in 7.0872ms
+2025-05-30 14:42:39.484 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.Delete (OgloszeniaSytem)'
+2025-05-30 14:42:39.485 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Ogloszenia/Delete/6 - 200 null text/html; charset=utf-8 14.3249ms
+2025-05-30 14:42:39.506 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - null null
+2025-05-30 14:42:39.509 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - 404 0 null 2.4906ms
+2025-05-30 14:42:39.511 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5025/Api/Weather/Warszawa, Response status code: 404
+2025-05-30 14:42:40.745 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5025/Ogloszenia/Delete/6 - application/x-www-form-urlencoded 230
+2025-05-30 14:42:40.748 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.DeleteConfirmed (OgloszeniaSytem)'
+2025-05-30 14:42:40.749 +02:00 [INF] Route matched with {action = "Delete", controller = "Ogloszenia", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteConfirmed(Int32) on controller OgloszeniaSytem.Controllers.OgloszeniaController (OgloszeniaSytem).
+2025-05-30 14:42:40.752 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."AutorId", "t"."Cena", "t"."CzyAktywne", "t"."DataPublikacji", "t"."DataWaznosci", "t"."KategoriaId", "t"."LiczbaWyswietlen", "t"."LokalizacjaId", "t"."Opis", "t"."Tytul", "z"."Id", "z"."AltText", "z"."DataDodania", "z"."NazwaPliku", "z"."OgloszenieId", "z"."RozmiarPliku", "o0"."Id", "o0"."AutorId", "o0"."DataOdpowiedzi", "o0"."OgloszenieId", "o0"."Tresc"
+FROM (
+    SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul"
+    FROM "Ogloszenia" AS "o"
+    WHERE "o"."Id" = @__id_0
+    LIMIT 1
+) AS "t"
+LEFT JOIN "Zdjecia" AS "z" ON "t"."Id" = "z"."OgloszenieId"
+LEFT JOIN "Odpowiedzi" AS "o0" ON "t"."Id" = "o0"."OgloszenieId"
+ORDER BY "t"."Id", "z"."Id"
+2025-05-30 14:42:40.755 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-05-30 14:42:40.758 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "Zdjecia"
+WHERE "Id" = @p0
+RETURNING 1;
+2025-05-30 14:42:40.760 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "Ogloszenia"
+WHERE "Id" = @p0
+RETURNING 1;
+2025-05-30 14:42:40.763 +02:00 [INF] Usunięto ogłoszenie: 6 przez użytkownika: c383efb3-2346-4343-b015-ddeeff3d8fbe
+2025-05-30 14:42:40.764 +02:00 [INF] Executing RedirectResult, redirecting to /Ogloszenia/MyOgloszenia.
+2025-05-30 14:42:40.765 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.OgloszeniaController.DeleteConfirmed (OgloszeniaSytem) in 14.6882ms
+2025-05-30 14:42:40.766 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.DeleteConfirmed (OgloszeniaSytem)'
+2025-05-30 14:42:40.767 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5025/Ogloszenia/Delete/6 - 302 0 null 22.0152ms
+2025-05-30 14:42:40.769 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia - null null
+2025-05-30 14:42:40.772 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:42:40.773 +02:00 [INF] Route matched with {action = "MyOgloszenia", controller = "Ogloszenia", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MyOgloszenia() on controller OgloszeniaSytem.Controllers.OgloszeniaController (OgloszeniaSytem).
+2025-05-30 14:42:40.775 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-05-30 14:42:40.777 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo", "z"."Id", "z"."AltText", "z"."DataDodania", "z"."NazwaPliku", "z"."OgloszenieId", "z"."RozmiarPliku"
+FROM "Ogloszenia" AS "o"
+INNER JOIN "Kategorie" AS "k" ON "o"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "o"."LokalizacjaId" = "l"."Id"
+LEFT JOIN "Zdjecia" AS "z" ON "o"."Id" = "z"."OgloszenieId"
+WHERE "o"."AutorId" = @__user_Id_0
+ORDER BY "o"."DataPublikacji" DESC, "o"."Id", "k"."Id", "l"."Id"
+2025-05-30 14:42:40.779 +02:00 [INF] Executing ViewResult, running view MyOgloszenia.
+2025-05-30 14:42:40.782 +02:00 [INF] Executed ViewResult - view MyOgloszenia executed in 2.3938ms.
+2025-05-30 14:42:40.783 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem) in 8.7409ms
+2025-05-30 14:42:40.784 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:42:40.785 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia - 200 null text/html; charset=utf-8 15.9144ms
+2025-05-30 14:42:40.813 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - null null
+2025-05-30 14:42:40.816 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - 404 0 null 2.8104ms
+2025-05-30 14:42:40.819 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5025/Api/Weather/Warszawa, Response status code: 404
+2025-05-30 14:42:44.218 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia - null null
+2025-05-30 14:42:44.220 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:42:44.221 +02:00 [INF] Route matched with {action = "MyOgloszenia", controller = "Ogloszenia", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MyOgloszenia() on controller OgloszeniaSytem.Controllers.OgloszeniaController (OgloszeniaSytem).
+2025-05-30 14:42:44.224 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-05-30 14:42:44.227 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo", "z"."Id", "z"."AltText", "z"."DataDodania", "z"."NazwaPliku", "z"."OgloszenieId", "z"."RozmiarPliku"
+FROM "Ogloszenia" AS "o"
+INNER JOIN "Kategorie" AS "k" ON "o"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "o"."LokalizacjaId" = "l"."Id"
+LEFT JOIN "Zdjecia" AS "z" ON "o"."Id" = "z"."OgloszenieId"
+WHERE "o"."AutorId" = @__user_Id_0
+ORDER BY "o"."DataPublikacji" DESC, "o"."Id", "k"."Id", "l"."Id"
+2025-05-30 14:42:44.229 +02:00 [INF] Executing ViewResult, running view MyOgloszenia.
+2025-05-30 14:42:44.231 +02:00 [INF] Executed ViewResult - view MyOgloszenia executed in 1.7537ms.
+2025-05-30 14:42:44.232 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem) in 8.9631ms
+2025-05-30 14:42:44.233 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:42:44.234 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia - 200 null text/html; charset=utf-8 16.2398ms
+2025-05-30 14:42:44.258 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - null null
+2025-05-30 14:42:44.261 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - 404 0 null 2.4198ms
+2025-05-30 14:42:44.263 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5025/Api/Weather/Warszawa, Response status code: 404
+2025-05-30 14:42:48.202 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Ogloszenia/Delete/5 - null null
+2025-05-30 14:42:48.204 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.Delete (OgloszeniaSytem)'
+2025-05-30 14:42:48.205 +02:00 [INF] Route matched with {action = "Delete", controller = "Ogloszenia", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Delete(System.Nullable`1[System.Int32]) on controller OgloszeniaSytem.Controllers.OgloszeniaController (OgloszeniaSytem).
+2025-05-30 14:42:48.208 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo"
+FROM "Ogloszenia" AS "o"
+INNER JOIN "AspNetUsers" AS "a" ON "o"."AutorId" = "a"."Id"
+INNER JOIN "Kategorie" AS "k" ON "o"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "o"."LokalizacjaId" = "l"."Id"
+WHERE "o"."Id" = @__id_0
+LIMIT 1
+2025-05-30 14:42:48.210 +02:00 [INF] Executing ViewResult, running view Delete.
+2025-05-30 14:42:48.213 +02:00 [INF] Executed ViewResult - view Delete executed in 2.9659ms.
+2025-05-30 14:42:48.214 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.OgloszeniaController.Delete (OgloszeniaSytem) in 7.2782ms
+2025-05-30 14:42:48.215 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.Delete (OgloszeniaSytem)'
+2025-05-30 14:42:48.216 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Ogloszenia/Delete/5 - 200 null text/html; charset=utf-8 14.6997ms
+2025-05-30 14:42:48.249 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - null null
+2025-05-30 14:42:48.251 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - 404 0 null 2.5897ms
+2025-05-30 14:42:48.254 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5025/Api/Weather/Warszawa, Response status code: 404
+2025-05-30 14:42:49.164 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5025/Ogloszenia/Delete/5 - application/x-www-form-urlencoded 230
+2025-05-30 14:42:49.166 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.DeleteConfirmed (OgloszeniaSytem)'
+2025-05-30 14:42:49.167 +02:00 [INF] Route matched with {action = "Delete", controller = "Ogloszenia", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteConfirmed(Int32) on controller OgloszeniaSytem.Controllers.OgloszeniaController (OgloszeniaSytem).
+2025-05-30 14:42:49.171 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."AutorId", "t"."Cena", "t"."CzyAktywne", "t"."DataPublikacji", "t"."DataWaznosci", "t"."KategoriaId", "t"."LiczbaWyswietlen", "t"."LokalizacjaId", "t"."Opis", "t"."Tytul", "z"."Id", "z"."AltText", "z"."DataDodania", "z"."NazwaPliku", "z"."OgloszenieId", "z"."RozmiarPliku", "o0"."Id", "o0"."AutorId", "o0"."DataOdpowiedzi", "o0"."OgloszenieId", "o0"."Tresc"
+FROM (
+    SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul"
+    FROM "Ogloszenia" AS "o"
+    WHERE "o"."Id" = @__id_0
+    LIMIT 1
+) AS "t"
+LEFT JOIN "Zdjecia" AS "z" ON "t"."Id" = "z"."OgloszenieId"
+LEFT JOIN "Odpowiedzi" AS "o0" ON "t"."Id" = "o0"."OgloszenieId"
+ORDER BY "t"."Id", "z"."Id"
+2025-05-30 14:42:49.174 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-05-30 14:42:49.176 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "Zdjecia"
+WHERE "Id" = @p0
+RETURNING 1;
+2025-05-30 14:42:49.178 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "Ogloszenia"
+WHERE "Id" = @p0
+RETURNING 1;
+2025-05-30 14:42:49.181 +02:00 [INF] Usunięto ogłoszenie: 5 przez użytkownika: c383efb3-2346-4343-b015-ddeeff3d8fbe
+2025-05-30 14:42:49.182 +02:00 [INF] Executing RedirectResult, redirecting to /Ogloszenia/MyOgloszenia.
+2025-05-30 14:42:49.182 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.OgloszeniaController.DeleteConfirmed (OgloszeniaSytem) in 13.6903ms
+2025-05-30 14:42:49.183 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.DeleteConfirmed (OgloszeniaSytem)'
+2025-05-30 14:42:49.184 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5025/Ogloszenia/Delete/5 - 302 0 null 20.3125ms
+2025-05-30 14:42:49.187 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia - null null
+2025-05-30 14:42:49.189 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:42:49.190 +02:00 [INF] Route matched with {action = "MyOgloszenia", controller = "Ogloszenia", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MyOgloszenia() on controller OgloszeniaSytem.Controllers.OgloszeniaController (OgloszeniaSytem).
+2025-05-30 14:42:49.192 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-05-30 14:42:49.194 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo", "z"."Id", "z"."AltText", "z"."DataDodania", "z"."NazwaPliku", "z"."OgloszenieId", "z"."RozmiarPliku"
+FROM "Ogloszenia" AS "o"
+INNER JOIN "Kategorie" AS "k" ON "o"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "o"."LokalizacjaId" = "l"."Id"
+LEFT JOIN "Zdjecia" AS "z" ON "o"."Id" = "z"."OgloszenieId"
+WHERE "o"."AutorId" = @__user_Id_0
+ORDER BY "o"."DataPublikacji" DESC, "o"."Id", "k"."Id", "l"."Id"
+2025-05-30 14:42:49.196 +02:00 [INF] Executing ViewResult, running view MyOgloszenia.
+2025-05-30 14:42:49.198 +02:00 [INF] Executed ViewResult - view MyOgloszenia executed in 1.7163ms.
+2025-05-30 14:42:49.199 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem) in 7.7022ms
+2025-05-30 14:42:49.200 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:42:49.201 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia - 200 null text/html; charset=utf-8 14.534ms
+2025-05-30 14:42:49.228 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - null null
+2025-05-30 14:42:49.230 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - 404 0 null 2.337ms
+2025-05-30 14:42:49.233 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5025/Api/Weather/Warszawa, Response status code: 404
+2025-05-30 14:42:55.258 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Ogloszenia/Delete/4 - null null
+2025-05-30 14:42:55.261 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.Delete (OgloszeniaSytem)'
+2025-05-30 14:42:55.262 +02:00 [INF] Route matched with {action = "Delete", controller = "Ogloszenia", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Delete(System.Nullable`1[System.Int32]) on controller OgloszeniaSytem.Controllers.OgloszeniaController (OgloszeniaSytem).
+2025-05-30 14:42:55.265 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo"
+FROM "Ogloszenia" AS "o"
+INNER JOIN "AspNetUsers" AS "a" ON "o"."AutorId" = "a"."Id"
+INNER JOIN "Kategorie" AS "k" ON "o"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "o"."LokalizacjaId" = "l"."Id"
+WHERE "o"."Id" = @__id_0
+LIMIT 1
+2025-05-30 14:42:55.267 +02:00 [INF] Executing ViewResult, running view Delete.
+2025-05-30 14:42:55.269 +02:00 [INF] Executed ViewResult - view Delete executed in 1.9825ms.
+2025-05-30 14:42:55.270 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.OgloszeniaController.Delete (OgloszeniaSytem) in 6.701ms
+2025-05-30 14:42:55.272 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.Delete (OgloszeniaSytem)'
+2025-05-30 14:42:55.273 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Ogloszenia/Delete/4 - 200 null text/html; charset=utf-8 14.4964ms
+2025-05-30 14:42:55.295 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - null null
+2025-05-30 14:42:55.297 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - 404 0 null 2.5278ms
+2025-05-30 14:42:55.300 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5025/Api/Weather/Warszawa, Response status code: 404
+2025-05-30 14:42:56.382 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5025/Ogloszenia/Delete/4 - application/x-www-form-urlencoded 230
+2025-05-30 14:42:56.384 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.DeleteConfirmed (OgloszeniaSytem)'
+2025-05-30 14:42:56.385 +02:00 [INF] Route matched with {action = "Delete", controller = "Ogloszenia", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteConfirmed(Int32) on controller OgloszeniaSytem.Controllers.OgloszeniaController (OgloszeniaSytem).
+2025-05-30 14:42:56.388 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."AutorId", "t"."Cena", "t"."CzyAktywne", "t"."DataPublikacji", "t"."DataWaznosci", "t"."KategoriaId", "t"."LiczbaWyswietlen", "t"."LokalizacjaId", "t"."Opis", "t"."Tytul", "z"."Id", "z"."AltText", "z"."DataDodania", "z"."NazwaPliku", "z"."OgloszenieId", "z"."RozmiarPliku", "o0"."Id", "o0"."AutorId", "o0"."DataOdpowiedzi", "o0"."OgloszenieId", "o0"."Tresc"
+FROM (
+    SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul"
+    FROM "Ogloszenia" AS "o"
+    WHERE "o"."Id" = @__id_0
+    LIMIT 1
+) AS "t"
+LEFT JOIN "Zdjecia" AS "z" ON "t"."Id" = "z"."OgloszenieId"
+LEFT JOIN "Odpowiedzi" AS "o0" ON "t"."Id" = "o0"."OgloszenieId"
+ORDER BY "t"."Id", "z"."Id"
+2025-05-30 14:42:56.390 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-05-30 14:42:56.393 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+DELETE FROM "Ogloszenia"
+WHERE "Id" = @p0
+RETURNING 1;
+2025-05-30 14:42:56.395 +02:00 [INF] Usunięto ogłoszenie: 4 przez użytkownika: c383efb3-2346-4343-b015-ddeeff3d8fbe
+2025-05-30 14:42:56.396 +02:00 [INF] Executing RedirectResult, redirecting to /Ogloszenia/MyOgloszenia.
+2025-05-30 14:42:56.397 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.OgloszeniaController.DeleteConfirmed (OgloszeniaSytem) in 10.7445ms
+2025-05-30 14:42:56.398 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.DeleteConfirmed (OgloszeniaSytem)'
+2025-05-30 14:42:56.399 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5025/Ogloszenia/Delete/4 - 302 0 null 17.3015ms
+2025-05-30 14:42:56.402 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia - null null
+2025-05-30 14:42:56.404 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:42:56.405 +02:00 [INF] Route matched with {action = "MyOgloszenia", controller = "Ogloszenia", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MyOgloszenia() on controller OgloszeniaSytem.Controllers.OgloszeniaController (OgloszeniaSytem).
+2025-05-30 14:42:56.407 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-05-30 14:42:56.410 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo", "z"."Id", "z"."AltText", "z"."DataDodania", "z"."NazwaPliku", "z"."OgloszenieId", "z"."RozmiarPliku"
+FROM "Ogloszenia" AS "o"
+INNER JOIN "Kategorie" AS "k" ON "o"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "o"."LokalizacjaId" = "l"."Id"
+LEFT JOIN "Zdjecia" AS "z" ON "o"."Id" = "z"."OgloszenieId"
+WHERE "o"."AutorId" = @__user_Id_0
+ORDER BY "o"."DataPublikacji" DESC, "o"."Id", "k"."Id", "l"."Id"
+2025-05-30 14:42:56.412 +02:00 [INF] Executing ViewResult, running view MyOgloszenia.
+2025-05-30 14:42:56.414 +02:00 [INF] Executed ViewResult - view MyOgloszenia executed in 1.8025ms.
+2025-05-30 14:42:56.414 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem) in 8.0952ms
+2025-05-30 14:42:56.416 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:42:56.417 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia - 200 null text/html; charset=utf-8 14.8277ms
+2025-05-30 14:42:56.446 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - null null
+2025-05-30 14:42:56.449 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - 404 0 null 2.9588ms
+2025-05-30 14:42:56.452 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5025/Api/Weather/Warszawa, Response status code: 404
+2025-05-30 14:43:25.517 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia?culture=en-US&ui-culture=en-US - null null
+2025-05-30 14:43:25.521 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:43:25.522 +02:00 [INF] Route matched with {action = "MyOgloszenia", controller = "Ogloszenia", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MyOgloszenia() on controller OgloszeniaSytem.Controllers.OgloszeniaController (OgloszeniaSytem).
+2025-05-30 14:43:25.525 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-05-30 14:43:25.528 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo", "z"."Id", "z"."AltText", "z"."DataDodania", "z"."NazwaPliku", "z"."OgloszenieId", "z"."RozmiarPliku"
+FROM "Ogloszenia" AS "o"
+INNER JOIN "Kategorie" AS "k" ON "o"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "o"."LokalizacjaId" = "l"."Id"
+LEFT JOIN "Zdjecia" AS "z" ON "o"."Id" = "z"."OgloszenieId"
+WHERE "o"."AutorId" = @__user_Id_0
+ORDER BY "o"."DataPublikacji" DESC, "o"."Id", "k"."Id", "l"."Id"
+2025-05-30 14:43:25.530 +02:00 [INF] Executing ViewResult, running view MyOgloszenia.
+2025-05-30 14:43:25.532 +02:00 [INF] Executed ViewResult - view MyOgloszenia executed in 2.0454ms.
+2025-05-30 14:43:25.533 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem) in 9.0808ms
+2025-05-30 14:43:25.534 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:43:25.535 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia?culture=en-US&ui-culture=en-US - 200 null text/html; charset=utf-8 18.4945ms
+2025-05-30 14:43:25.568 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - null null
+2025-05-30 14:43:25.571 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - 404 0 null 2.6903ms
+2025-05-30 14:43:25.573 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5025/Api/Weather/Warszawa, Response status code: 404
+2025-05-30 14:43:35.958 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia?culture=pl-PL&ui-culture=pl-PL - null null
+2025-05-30 14:43:35.961 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:43:35.962 +02:00 [INF] Route matched with {action = "MyOgloszenia", controller = "Ogloszenia", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MyOgloszenia() on controller OgloszeniaSytem.Controllers.OgloszeniaController (OgloszeniaSytem).
+2025-05-30 14:43:35.965 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-05-30 14:43:35.968 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo", "z"."Id", "z"."AltText", "z"."DataDodania", "z"."NazwaPliku", "z"."OgloszenieId", "z"."RozmiarPliku"
+FROM "Ogloszenia" AS "o"
+INNER JOIN "Kategorie" AS "k" ON "o"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "o"."LokalizacjaId" = "l"."Id"
+LEFT JOIN "Zdjecia" AS "z" ON "o"."Id" = "z"."OgloszenieId"
+WHERE "o"."AutorId" = @__user_Id_0
+ORDER BY "o"."DataPublikacji" DESC, "o"."Id", "k"."Id", "l"."Id"
+2025-05-30 14:43:35.971 +02:00 [INF] Executing ViewResult, running view MyOgloszenia.
+2025-05-30 14:43:35.975 +02:00 [INF] Executed ViewResult - view MyOgloszenia executed in 3.9258ms.
+2025-05-30 14:43:35.976 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem) in 12.3976ms
+2025-05-30 14:43:35.977 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:43:35.978 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia?culture=pl-PL&ui-culture=pl-PL - 200 null text/html; charset=utf-8 20.3087ms
+2025-05-30 14:43:36.001 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - null null
+2025-05-30 14:43:36.003 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - 404 0 null 2.3938ms
+2025-05-30 14:43:36.005 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5025/Api/Weather/Warszawa, Response status code: 404
+2025-05-30 14:43:38.013 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia?culture=pl-PL&ui-culture=pl-PL - null null
+2025-05-30 14:43:38.015 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:43:38.016 +02:00 [INF] Route matched with {action = "MyOgloszenia", controller = "Ogloszenia", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MyOgloszenia() on controller OgloszeniaSytem.Controllers.OgloszeniaController (OgloszeniaSytem).
+2025-05-30 14:43:38.019 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-05-30 14:43:38.021 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo", "z"."Id", "z"."AltText", "z"."DataDodania", "z"."NazwaPliku", "z"."OgloszenieId", "z"."RozmiarPliku"
+FROM "Ogloszenia" AS "o"
+INNER JOIN "Kategorie" AS "k" ON "o"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "o"."LokalizacjaId" = "l"."Id"
+LEFT JOIN "Zdjecia" AS "z" ON "o"."Id" = "z"."OgloszenieId"
+WHERE "o"."AutorId" = @__user_Id_0
+ORDER BY "o"."DataPublikacji" DESC, "o"."Id", "k"."Id", "l"."Id"
+2025-05-30 14:43:38.024 +02:00 [INF] Executing ViewResult, running view MyOgloszenia.
+2025-05-30 14:43:38.025 +02:00 [INF] Executed ViewResult - view MyOgloszenia executed in 1.6196ms.
+2025-05-30 14:43:38.026 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem) in 8.3255ms
+2025-05-30 14:43:38.028 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:43:38.029 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia?culture=pl-PL&ui-culture=pl-PL - 200 null text/html; charset=utf-8 16.1304ms
+2025-05-30 14:43:38.050 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - null null
+2025-05-30 14:43:38.053 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - 404 0 null 2.7645ms
+2025-05-30 14:43:38.055 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5025/Api/Weather/Warszawa, Response status code: 404
+2025-05-30 14:43:40.431 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia?culture=en-US&ui-culture=en-US - null null
+2025-05-30 14:43:40.434 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:43:40.435 +02:00 [INF] Route matched with {action = "MyOgloszenia", controller = "Ogloszenia", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MyOgloszenia() on controller OgloszeniaSytem.Controllers.OgloszeniaController (OgloszeniaSytem).
+2025-05-30 14:43:40.438 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-05-30 14:43:40.440 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo", "z"."Id", "z"."AltText", "z"."DataDodania", "z"."NazwaPliku", "z"."OgloszenieId", "z"."RozmiarPliku"
+FROM "Ogloszenia" AS "o"
+INNER JOIN "Kategorie" AS "k" ON "o"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "o"."LokalizacjaId" = "l"."Id"
+LEFT JOIN "Zdjecia" AS "z" ON "o"."Id" = "z"."OgloszenieId"
+WHERE "o"."AutorId" = @__user_Id_0
+ORDER BY "o"."DataPublikacji" DESC, "o"."Id", "k"."Id", "l"."Id"
+2025-05-30 14:43:40.443 +02:00 [INF] Executing ViewResult, running view MyOgloszenia.
+2025-05-30 14:43:40.444 +02:00 [INF] Executed ViewResult - view MyOgloszenia executed in 1.7798ms.
+2025-05-30 14:43:40.445 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem) in 8.7347ms
+2025-05-30 14:43:40.446 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:43:40.447 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia?culture=en-US&ui-culture=en-US - 200 null text/html; charset=utf-8 16.2168ms
+2025-05-30 14:43:40.471 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - null null
+2025-05-30 14:43:40.474 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - 404 0 null 2.3402ms
+2025-05-30 14:43:40.476 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5025/Api/Weather/Warszawa, Response status code: 404
+2025-05-30 14:43:43.076 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia?culture=pl-PL&ui-culture=pl-PL - null null
+2025-05-30 14:43:43.079 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:43:43.080 +02:00 [INF] Route matched with {action = "MyOgloszenia", controller = "Ogloszenia", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MyOgloszenia() on controller OgloszeniaSytem.Controllers.OgloszeniaController (OgloszeniaSytem).
+2025-05-30 14:43:43.082 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-05-30 14:43:43.085 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo", "z"."Id", "z"."AltText", "z"."DataDodania", "z"."NazwaPliku", "z"."OgloszenieId", "z"."RozmiarPliku"
+FROM "Ogloszenia" AS "o"
+INNER JOIN "Kategorie" AS "k" ON "o"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "o"."LokalizacjaId" = "l"."Id"
+LEFT JOIN "Zdjecia" AS "z" ON "o"."Id" = "z"."OgloszenieId"
+WHERE "o"."AutorId" = @__user_Id_0
+ORDER BY "o"."DataPublikacji" DESC, "o"."Id", "k"."Id", "l"."Id"
+2025-05-30 14:43:43.087 +02:00 [INF] Executing ViewResult, running view MyOgloszenia.
+2025-05-30 14:43:43.088 +02:00 [INF] Executed ViewResult - view MyOgloszenia executed in 1.4975ms.
+2025-05-30 14:43:43.090 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem) in 8.3693ms
+2025-05-30 14:43:43.091 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:43:43.092 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia?culture=pl-PL&ui-culture=pl-PL - 200 null text/html; charset=utf-8 15.9044ms
+2025-05-30 14:43:43.116 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - null null
+2025-05-30 14:43:43.118 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - 404 0 null 2.4322ms
+2025-05-30 14:43:43.121 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5025/Api/Weather/Warszawa, Response status code: 404
+2025-05-30 14:43:44.713 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia?culture=en-US&ui-culture=en-US - null null
+2025-05-30 14:43:44.716 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:43:44.717 +02:00 [INF] Route matched with {action = "MyOgloszenia", controller = "Ogloszenia", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MyOgloszenia() on controller OgloszeniaSytem.Controllers.OgloszeniaController (OgloszeniaSytem).
+2025-05-30 14:43:44.720 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-05-30 14:43:44.722 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo", "z"."Id", "z"."AltText", "z"."DataDodania", "z"."NazwaPliku", "z"."OgloszenieId", "z"."RozmiarPliku"
+FROM "Ogloszenia" AS "o"
+INNER JOIN "Kategorie" AS "k" ON "o"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "o"."LokalizacjaId" = "l"."Id"
+LEFT JOIN "Zdjecia" AS "z" ON "o"."Id" = "z"."OgloszenieId"
+WHERE "o"."AutorId" = @__user_Id_0
+ORDER BY "o"."DataPublikacji" DESC, "o"."Id", "k"."Id", "l"."Id"
+2025-05-30 14:43:44.724 +02:00 [INF] Executing ViewResult, running view MyOgloszenia.
+2025-05-30 14:43:44.726 +02:00 [INF] Executed ViewResult - view MyOgloszenia executed in 1.5868ms.
+2025-05-30 14:43:44.727 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem) in 8.7736ms
+2025-05-30 14:43:44.728 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:43:44.730 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia?culture=en-US&ui-culture=en-US - 200 null text/html; charset=utf-8 16.2671ms
+2025-05-30 14:43:44.752 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - null null
+2025-05-30 14:43:44.754 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - 404 0 null 2.554ms
+2025-05-30 14:43:44.756 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5025/Api/Weather/Warszawa, Response status code: 404
+2025-05-30 14:43:46.058 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia?culture=pl-PL&ui-culture=pl-PL - null null
+2025-05-30 14:43:46.060 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:43:46.061 +02:00 [INF] Route matched with {action = "MyOgloszenia", controller = "Ogloszenia", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] MyOgloszenia() on controller OgloszeniaSytem.Controllers.OgloszeniaController (OgloszeniaSytem).
+2025-05-30 14:43:46.064 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."Id" = @__p_0
+LIMIT 1
+2025-05-30 14:43:46.066 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo", "z"."Id", "z"."AltText", "z"."DataDodania", "z"."NazwaPliku", "z"."OgloszenieId", "z"."RozmiarPliku"
+FROM "Ogloszenia" AS "o"
+INNER JOIN "Kategorie" AS "k" ON "o"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "o"."LokalizacjaId" = "l"."Id"
+LEFT JOIN "Zdjecia" AS "z" ON "o"."Id" = "z"."OgloszenieId"
+WHERE "o"."AutorId" = @__user_Id_0
+ORDER BY "o"."DataPublikacji" DESC, "o"."Id", "k"."Id", "l"."Id"
+2025-05-30 14:43:46.068 +02:00 [INF] Executing ViewResult, running view MyOgloszenia.
+2025-05-30 14:43:46.070 +02:00 [INF] Executed ViewResult - view MyOgloszenia executed in 2.3654ms.
+2025-05-30 14:43:46.072 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem) in 8.7243ms
+2025-05-30 14:43:46.073 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.MyOgloszenia (OgloszeniaSytem)'
+2025-05-30 14:43:46.074 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Ogloszenia/MyOgloszenia?culture=pl-PL&ui-culture=pl-PL - 200 null text/html; charset=utf-8 15.9302ms
+2025-05-30 14:43:46.097 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - null null
+2025-05-30 14:43:46.099 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - 404 0 null 2.3794ms
+2025-05-30 14:43:46.103 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5025/Api/Weather/Warszawa, Response status code: 404
+2025-05-30 14:44:08.964 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/ - null null
+2025-05-30 14:44:08.967 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem)'
+2025-05-30 14:44:08.968 +02:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller OgloszeniaSytem.Controllers.HomeController (OgloszeniaSytem).
+2025-05-30 14:44:08.970 +02:00 [INF] Ładowanie strony głównej...
+2025-05-30 14:44:08.971 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis"
+FROM "Kategorie" AS "k"
+2025-05-30 14:44:08.972 +02:00 [INF] Znaleziono 8 kategorii
+2025-05-30 14:44:08.974 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."AutorId", "t"."Cena", "t"."CzyAktywne", "t"."DataPublikacji", "t"."DataWaznosci", "t"."KategoriaId", "t"."LiczbaWyswietlen", "t"."LokalizacjaId", "t"."Opis", "t"."Tytul", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM (
+    SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul"
+    FROM "Ogloszenia" AS "o"
+    WHERE "o"."CzyAktywne"
+    ORDER BY "o"."DataPublikacji" DESC
+    LIMIT @__p_0
+) AS "t"
+INNER JOIN "Kategorie" AS "k" ON "t"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "t"."LokalizacjaId" = "l"."Id"
+INNER JOIN "AspNetUsers" AS "a" ON "t"."AutorId" = "a"."Id"
+ORDER BY "t"."DataPublikacji" DESC
+2025-05-30 14:44:08.977 +02:00 [INF] Znaleziono 3 ogłoszeń
+2025-05-30 14:44:08.977 +02:00 [INF] Executing ViewResult, running view Index.
+2025-05-30 14:44:08.979 +02:00 [INF] Executed ViewResult - view Index executed in 1.9678ms.
+2025-05-30 14:44:08.980 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem) in 10.9378ms
+2025-05-30 14:44:08.982 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem)'
+2025-05-30 14:44:08.983 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/ - 200 null text/html; charset=utf-8 18.4994ms
+2025-05-30 14:44:09.020 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - null null
+2025-05-30 14:44:09.023 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - 404 0 null 2.5601ms
+2025-05-30 14:44:09.026 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5025/Api/Weather/Warszawa, Response status code: 404
+2025-05-30 14:44:49.136 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Ogloszenia/Create - null null
+2025-05-30 14:44:49.139 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.Create (OgloszeniaSytem)'
+2025-05-30 14:44:49.142 +02:00 [INF] Route matched with {action = "Create", controller = "Ogloszenia", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create() on controller OgloszeniaSytem.Controllers.OgloszeniaController (OgloszeniaSytem).
+2025-05-30 14:44:49.145 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis"
+FROM "Kategorie" AS "k"
+2025-05-30 14:44:49.152 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo"
+FROM "Lokalizacje" AS "l"
+2025-05-30 14:44:49.156 +02:00 [INF] Executing ViewResult, running view Create.
+2025-05-30 14:44:49.192 +02:00 [INF] Executed ViewResult - view Create executed in 36.4926ms.
+2025-05-30 14:44:49.193 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.OgloszeniaController.Create (OgloszeniaSytem) in 49.229ms
+2025-05-30 14:44:49.194 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.Create (OgloszeniaSytem)'
+2025-05-30 14:44:49.195 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Ogloszenia/Create - 200 null text/html; charset=utf-8 58.7032ms
+2025-05-30 14:44:49.238 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - null null
+2025-05-30 14:44:49.241 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - 404 0 null 2.5637ms
+2025-05-30 14:44:49.243 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5025/Api/Weather/Warszawa, Response status code: 404
+2025-05-30 14:44:54.847 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Ogloszenia/Create?culture=en-US&ui-culture=en-US - null null
+2025-05-30 14:44:54.850 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.Create (OgloszeniaSytem)'
+2025-05-30 14:44:54.851 +02:00 [INF] Route matched with {action = "Create", controller = "Ogloszenia", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create() on controller OgloszeniaSytem.Controllers.OgloszeniaController (OgloszeniaSytem).
+2025-05-30 14:44:54.853 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis"
+FROM "Kategorie" AS "k"
+2025-05-30 14:44:54.856 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo"
+FROM "Lokalizacje" AS "l"
+2025-05-30 14:44:54.858 +02:00 [INF] Executing ViewResult, running view Create.
+2025-05-30 14:44:54.862 +02:00 [INF] Executed ViewResult - view Create executed in 4.4155ms.
+2025-05-30 14:44:54.863 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.OgloszeniaController.Create (OgloszeniaSytem) in 10.5455ms
+2025-05-30 14:44:54.864 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.Create (OgloszeniaSytem)'
+2025-05-30 14:44:54.865 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Ogloszenia/Create?culture=en-US&ui-culture=en-US - 200 null text/html; charset=utf-8 17.539ms
+2025-05-30 14:44:54.889 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - null null
+2025-05-30 14:44:54.892 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - 404 0 null 2.7638ms
+2025-05-30 14:44:54.894 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5025/Api/Weather/Warszawa, Response status code: 404
+2025-05-30 14:44:59.689 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Ogloszenia/Create?culture=pl-PL&ui-culture=pl-PL - null null
+2025-05-30 14:44:59.691 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.Create (OgloszeniaSytem)'
+2025-05-30 14:44:59.692 +02:00 [INF] Route matched with {action = "Create", controller = "Ogloszenia", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Create() on controller OgloszeniaSytem.Controllers.OgloszeniaController (OgloszeniaSytem).
+2025-05-30 14:44:59.695 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis"
+FROM "Kategorie" AS "k"
+2025-05-30 14:44:59.696 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo"
+FROM "Lokalizacje" AS "l"
+2025-05-30 14:44:59.698 +02:00 [INF] Executing ViewResult, running view Create.
+2025-05-30 14:44:59.701 +02:00 [INF] Executed ViewResult - view Create executed in 2.7088ms.
+2025-05-30 14:44:59.702 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.OgloszeniaController.Create (OgloszeniaSytem) in 7.7955ms
+2025-05-30 14:44:59.703 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.OgloszeniaController.Create (OgloszeniaSytem)'
+2025-05-30 14:44:59.704 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Ogloszenia/Create?culture=pl-PL&ui-culture=pl-PL - 200 null text/html; charset=utf-8 15.0804ms
+2025-05-30 14:44:59.727 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - null null
+2025-05-30 14:44:59.729 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - 404 0 null 2.0213ms
+2025-05-30 14:44:59.731 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5025/Api/Weather/Warszawa, Response status code: 404
+2025-05-30 14:45:00.807 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/ - null null
+2025-05-30 14:45:00.810 +02:00 [INF] Executing endpoint 'OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem)'
+2025-05-30 14:45:00.811 +02:00 [INF] Route matched with {action = "Index", controller = "Home", page = "", area = ""}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index() on controller OgloszeniaSytem.Controllers.HomeController (OgloszeniaSytem).
+2025-05-30 14:45:00.813 +02:00 [INF] Ładowanie strony głównej...
+2025-05-30 14:45:00.814 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis"
+FROM "Kategorie" AS "k"
+2025-05-30 14:45:00.815 +02:00 [INF] Znaleziono 8 kategorii
+2025-05-30 14:45:00.817 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."AutorId", "t"."Cena", "t"."CzyAktywne", "t"."DataPublikacji", "t"."DataWaznosci", "t"."KategoriaId", "t"."LiczbaWyswietlen", "t"."LokalizacjaId", "t"."Opis", "t"."Tytul", "k"."Id", "k"."Ikona", "k"."Nazwa", "k"."Opis", "l"."Id", "l"."Kod", "l"."Nazwa", "l"."Wojewodztwo", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."DataRejestracji", "a"."Email", "a"."EmailConfirmed", "a"."Imie", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."Nazwisko", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM (
+    SELECT "o"."Id", "o"."AutorId", "o"."Cena", "o"."CzyAktywne", "o"."DataPublikacji", "o"."DataWaznosci", "o"."KategoriaId", "o"."LiczbaWyswietlen", "o"."LokalizacjaId", "o"."Opis", "o"."Tytul"
+    FROM "Ogloszenia" AS "o"
+    WHERE "o"."CzyAktywne"
+    ORDER BY "o"."DataPublikacji" DESC
+    LIMIT @__p_0
+) AS "t"
+INNER JOIN "Kategorie" AS "k" ON "t"."KategoriaId" = "k"."Id"
+INNER JOIN "Lokalizacje" AS "l" ON "t"."LokalizacjaId" = "l"."Id"
+INNER JOIN "AspNetUsers" AS "a" ON "t"."AutorId" = "a"."Id"
+ORDER BY "t"."DataPublikacji" DESC
+2025-05-30 14:45:00.819 +02:00 [INF] Znaleziono 3 ogłoszeń
+2025-05-30 14:45:00.820 +02:00 [INF] Executing ViewResult, running view Index.
+2025-05-30 14:45:00.821 +02:00 [INF] Executed ViewResult - view Index executed in 1.4377ms.
+2025-05-30 14:45:00.822 +02:00 [INF] Executed action OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem) in 9.937ms
+2025-05-30 14:45:00.823 +02:00 [INF] Executed endpoint 'OgloszeniaSytem.Controllers.HomeController.Index (OgloszeniaSytem)'
+2025-05-30 14:45:00.824 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/ - 200 null text/html; charset=utf-8 17.3459ms
+2025-05-30 14:45:00.850 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - null null
+2025-05-30 14:45:00.852 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5025/Api/Weather/Warszawa - 404 0 null 2.275ms
+2025-05-30 14:45:00.855 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5025/Api/Weather/Warszawa, Response status code: 404
+2025-05-30 14:48:09.161 +02:00 [INF] Application is shutting down...

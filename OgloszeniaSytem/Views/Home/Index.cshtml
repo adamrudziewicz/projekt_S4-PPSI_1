@@ -1,0 +1,171 @@
+@{
+    ViewData["Title"] = "Strona główna";
+    var najnowszeOgloszenia = ViewBag.NajnowszeOgloszenia as List<OgloszeniaSytem.Models.Listing> ?? new List<OgloszeniaSytem.Models.Listing>();
+    var kategorie = ViewBag.Kategorie as List<OgloszeniaSytem.Models.Category> ?? new List<OgloszeniaSytem.Models.Category>();
+}
+
+<!-- Hero section -->
+<div class="jumbotron jumbotron-fluid bg-primary text-white text-center py-5 mb-5">
+    <div class="container">
+        <h1 class="display-4">
+            System Ogłoszeń
+        </h1>
+        <p class="lead">Znajdź to, czego szukasz lub sprzedaj niepotrzebne rzeczy</p>
+        <a class="btn btn-light btn-lg" asp-controller="Listing" asp-action="Create">
+            <i class="fas fa-plus"></i> Dodaj ogłoszenie
+        </a>
+    </div>
+</div>
+
+<!-- Wyszukiwarka -->
+<div class="row mb-5">
+    <div class="col-lg-8 mx-auto">
+        <div class="card shadow">
+            <div class="card-body">
+                <form asp-controller="Listing" asp-action="Index" method="get">
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <input name="search" class="form-control" placeholder="Czego szukasz?" />
+                        </div>
+                        <div class="col-md-3">
+                            <select name="kategoria" class="form-select">
+                                <option value="">Wszystkie kategorie</option>
+                                @if (kategorie.Any())
+                                {
+                                    @foreach (var kategoria in kategorie)
+                                    {
+                                        <option value="@kategoria.Nazwa">@kategoria.Nazwa</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <input name="lokalizacja" class="form-control" placeholder="Lokalizacja" />
+                        </div>
+                        <div class="col-md-2">
+                            <button type="submit" class="btn btn-primary w-100">
+                                <i class="fas fa-search"></i> Szukaj
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Kategorie -->
+<div class="mb-5">
+    <h2 class="text-center mb-4">Przeglądaj kategorie</h2>
+    <div class="row">
+        @if (kategorie.Any())
+        {
+            @foreach (var kategoria in kategorie)
+            {
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                    <a asp-controller="Listing" asp-action="Index" asp-route-kategoria="@kategoria.Nazwa" 
+                       class="text-decoration-none">
+                        <div class="card h-100 text-center category-card">
+                            <div class="card-body">
+                                <i class="@(kategoria.Ikona ?? "fas fa-list") fa-3x text-primary mb-3"></i>
+                                <h5 class="card-title">@kategoria.Nazwa</h5>
+                                <p class="card-text text-muted">@(kategoria.Opis ?? "")</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12">
+                <div class="alert alert-info text-center">
+                    <i class="fas fa-info-circle"></i> Brak kategorii do wyświetlenia.
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<!-- Najnowsze ogłoszenia -->
+<div class="mb-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Najnowsze ogłoszenia</h2>
+        <a asp-controller="Listing" asp-action="Index" class="btn btn-outline-primary">
+            Zobacz wszystkie <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+    
+    <div class="row">
+        @if (najnowszeOgloszenia.Any())
+        {
+            @foreach (var ogloszenie in najnowszeOgloszenia)
+            {
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a asp-controller="Listing" asp-action="Details" asp-route-id="@ogloszenie.Id" 
+                                   class="text-decoration-none">
+                                    @(ogloszenie.Tytul ?? "Brak tytułu")
+                                </a>
+                            </h5>
+                            <p class="card-text">
+                                @{
+                                    var opis = ogloszenie.Opis ?? "";
+                                    var opisKrotki = opis.Length > 100 ? opis.Substring(0, 100) + "..." : opis;
+                                }
+                                @opisKrotki
+                            </p>
+                            <div class="mb-2">
+                                @if (ogloszenie.Kategoria != null)
+                                {
+                                    <span class="badge bg-primary">@ogloszenie.Kategoria.Nazwa</span>
+                                }
+                                @if (ogloszenie.Lokalizacja != null)
+                                {
+                                    <span class="badge bg-secondary">@ogloszenie.Lokalizacja.Nazwa</span>
+                                }
+                            </div>
+                            @{
+                                try 
+                                {
+                                    if (ogloszenie.Cena != null && ogloszenie.Cena.HasValue && ogloszenie.Cena.Value > 0)
+                                    {
+                                        <div class="text-success fw-bold">@ogloszenie.Cena.Value.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("pl-PL"))</div>
+                                    }
+                                }
+                                catch
+                                {
+                                    // Ignoruj błędy formatowania ceny
+                                }
+                            }
+                            <small class="text-muted">
+                                <i class="fas fa-calendar"></i> @ogloszenie.DataPublikacji.ToString("dd.MM.yyyy")
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12">
+                <div class="alert alert-info text-center">
+                    <i class="fas fa-info-circle"></i> Brak ogłoszeń do wyświetlenia.
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+.category-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+</style>    
